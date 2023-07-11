@@ -40,12 +40,14 @@
             novoCadastroToolStripMenuItem = new ToolStripMenuItem();
             verDependentesToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            exameToolStripMenuItem = new ToolStripMenuItem();
+            seusExamesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { eventosToolStripMenuItem, minhasFaturasToolStripMenuItem, cadastrarDependenteToolStripMenuItem, sairToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { eventosToolStripMenuItem, minhasFaturasToolStripMenuItem, cadastrarDependenteToolStripMenuItem, exameToolStripMenuItem, sairToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -82,19 +84,19 @@
             // emAbertoToolStripMenuItem
             // 
             emAbertoToolStripMenuItem.Name = "emAbertoToolStripMenuItem";
-            emAbertoToolStripMenuItem.Size = new Size(129, 22);
+            emAbertoToolStripMenuItem.Size = new Size(180, 22);
             emAbertoToolStripMenuItem.Text = "Ver todas ";
             // 
             // pagasToolStripMenuItem
             // 
             pagasToolStripMenuItem.Name = "pagasToolStripMenuItem";
-            pagasToolStripMenuItem.Size = new Size(129, 22);
+            pagasToolStripMenuItem.Size = new Size(180, 22);
             pagasToolStripMenuItem.Text = "Pagas";
             // 
             // emAbertoToolStripMenuItem1
             // 
             emAbertoToolStripMenuItem1.Name = "emAbertoToolStripMenuItem1";
-            emAbertoToolStripMenuItem1.Size = new Size(129, 22);
+            emAbertoToolStripMenuItem1.Size = new Size(180, 22);
             emAbertoToolStripMenuItem1.Text = "Pendentes";
             // 
             // cadastrarDependenteToolStripMenuItem
@@ -107,13 +109,13 @@
             // novoCadastroToolStripMenuItem
             // 
             novoCadastroToolStripMenuItem.Name = "novoCadastroToolStripMenuItem";
-            novoCadastroToolStripMenuItem.Size = new Size(164, 22);
+            novoCadastroToolStripMenuItem.Size = new Size(180, 22);
             novoCadastroToolStripMenuItem.Text = "Novo Cadastro ";
             // 
             // verDependentesToolStripMenuItem
             // 
             verDependentesToolStripMenuItem.Name = "verDependentesToolStripMenuItem";
-            verDependentesToolStripMenuItem.Size = new Size(164, 22);
+            verDependentesToolStripMenuItem.Size = new Size(180, 22);
             verDependentesToolStripMenuItem.Text = "Ver dependentes ";
             // 
             // sairToolStripMenuItem
@@ -121,6 +123,19 @@
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             sairToolStripMenuItem.Size = new Size(38, 20);
             sairToolStripMenuItem.Text = "Sair";
+            // 
+            // exameToolStripMenuItem
+            // 
+            exameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seusExamesToolStripMenuItem });
+            exameToolStripMenuItem.Name = "exameToolStripMenuItem";
+            exameToolStripMenuItem.Size = new Size(54, 20);
+            exameToolStripMenuItem.Text = "Exame";
+            // 
+            // seusExamesToolStripMenuItem
+            // 
+            seusExamesToolStripMenuItem.Name = "seusExamesToolStripMenuItem";
+            seusExamesToolStripMenuItem.Size = new Size(180, 22);
+            seusExamesToolStripMenuItem.Text = "Seus Exames";
             // 
             // Acesso___Inicio
             // 
@@ -150,5 +165,7 @@
         private ToolStripMenuItem novoCadastroToolStripMenuItem;
         private ToolStripMenuItem verDependentesToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
+        private ToolStripMenuItem exameToolStripMenuItem;
+        private ToolStripMenuItem seusExamesToolStripMenuItem;
     }
 }

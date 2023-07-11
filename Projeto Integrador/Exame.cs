@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Projeto_Integrador
 {
-    public partial class FormDepNovo : Form
+    public partial class Exame : Form
     {
-        public FormDepNovo()
+        public Exame()
         {
             InitializeComponent();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
