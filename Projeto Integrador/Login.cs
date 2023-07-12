@@ -30,9 +30,17 @@ namespace Projeto_Integrador
             //var retorno = db.BuscarUsuario(usuario.CPF, usuario.Senha);
 
             //if (!retorno) // ! = negação
-            //    MessageBox.Show("Senha incorreta!");
+            {
+                //    MessageBox.Show("Senha incorreta!");
+            }
             //if (retorno)
-            //    MessageBox.Show("Bem vindo");
+            {
+                //    int usuarioId = db.BuscarId(usuario.CPF);     -- usar caso necessário --
+                //    MessageBox.Show("Bem-vindo!");
+
+                Acesso___Inicio acesso = new Acesso___Inicio();
+                acesso.ShowDialog();
+            } 
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
