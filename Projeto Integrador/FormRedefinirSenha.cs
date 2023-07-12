@@ -16,5 +16,25 @@ namespace Projeto_Integrador
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // Conexao db = new Conexao();
+           // db.Conectar();
+         
+           // AtualizarSenha atualizar = new AtualizarSenha();
+           // atualizar.CPF = TextBox;
+           // atualizar.senhaNova = TextBox;
+           //
+           // var resultado = db.AtualizarSenha(atualizar.CPF, atualizar.novaSenha);
+           // if (resultado == true)
+           // {
+           //     MessageBox.Show("Senha redefinida com sucesso!");
+           // }
+           // else
+           // {
+           //     MessageBox.Show("Não foi possível redefinir a senha.");
+           // }
+        }
     }
 }

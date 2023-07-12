@@ -29,5 +29,24 @@ namespace Projeto_Integrador
         //  }
 
 
+        // REDEFINIR SENHA
+        //public string atualizarSenha(string CPF, string novaSenha)
+        //{
+        //    string sql = "UPDATE Usuarios SET Senha = @Senha WHERE Usuario = @Usuario";
+        //      SqlCommand comando = new SqlCommand(sql, conn);
+        //      comando.Parameters.AddWithValue("@Senha", novaSenha);
+        //      comando.Parameters.AddWithValue("@Usuario", usuario);
+
+        //      var resultado = comando.ExecuteNonQuery();
+        //      if (resultado > 0)
+        //      {
+        //          return true;
+        //      }
+        //      else
+        //      {
+        //          return false;
+        //      }
+        //}
     }
+
 }
