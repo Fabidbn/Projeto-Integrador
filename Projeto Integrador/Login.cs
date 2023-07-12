@@ -19,7 +19,20 @@ namespace Projeto_Integrador
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Conexao db = new Conexao();
+            //db.Conectar();
 
+            //UsuarioDoBanco usuario = new UsuarioDoBanco();  
+            //usuario.CPF = textBox1.Text;
+            //usuario.Senha = textBox2.Text;
+
+            //Buscar usuário e senha do banco de dados
+            //var retorno = db.BuscarUsuario(usuario.CPF, usuario.Senha);
+
+            //if (!retorno) // ! = negação
+            //    MessageBox.Show("Senha incorreta!");
+            //if (retorno)
+            //    MessageBox.Show("Bem vindo");
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
