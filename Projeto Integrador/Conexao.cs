@@ -29,24 +29,81 @@ namespace Projeto_Integrador
         //  }
 
 
+
+        // VERIFICAR A SENHA NO BANCO PARA CRIAR UMA NOVA
+        // public bool VerificarSenhaAntiga(string cpf, string senhaAntiga)
+        // {
+        //     try
+        //     {
+        //         string sql = "SELECT COUNT(*) FROM Usuario WHERE CPF = @CPF AND Senha = @SenhaAntiga";
+        //         SqlCommand comando = new SqlCommand(sql, conn);
+        //         comando.Parameters.AddWithValue("@CPF", cpf);
+        //         comando.Parameters.AddWithValue("@SenhaAntiga", senhaAntiga);
+        //
+        //         int senhaCorrespondente = (int)comando.ExecuteScalar();
+        //
+        //         return senhaCorrespondente > 0;
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         MessageBox.Show("Ocorreu um erro: " + ex.Message);
+        //         return false;
+        //     }
+        // }
+
+
+
         // REDEFINIR SENHA
-        //public string atualizarSenha(string CPF, string novaSenha)
-        //{
-        //    string sql = "UPDATE Usuarios SET Senha = @Senha WHERE Usuario = @Usuario";
-        //      SqlCommand comando = new SqlCommand(sql, conn);
-        //      comando.Parameters.AddWithValue("@Senha", novaSenha);
-        //      comando.Parameters.AddWithValue("@Usuario", usuario);
+        // public bool AtualizarSenha(string cpf, string novaSenha)
+        // {
+        //     try
+        //     {
+        //         bool senhaAntigaCorreta = VerificarSenhaAntiga(cpf, senhaAntiga);
+        //
+        //         if (!senhaAntigaCorreta)
+        //         {
+        //             MessageBox.Show("Senha antiga incorreta.");
+        //             return false;
+        //         }
+        //
+        //         string sql = "UPDATE Usuario SET Senha = @NovaSenha WHERE CPF = @CPF";
+        //         SqlCommand comando = new SqlCommand(sql, conn);
+        //         comando.Parameters.AddWithValue("@NovaSenha", novaSenha);
+        //         comando.Parameters.AddWithValue("@CPF", cpf);
+        //
+        //         int linhasAfetadas = comando.ExecuteNonQuery();
+        //
+        //         return linhasAfetadas > 0;
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         MessageBox.Show("Ocorreu um erro: " + ex.Message);
+        //         return false;
+        //     }
+        // }
 
-        //      var resultado = comando.ExecuteNonQuery();
-        //      if (resultado > 0)
-        //      {
-        //          return true;
-        //      }
-        //      else
-        //      {
-        //          return false;
-        //      }
-        //}
+
+
+        // public bool InserirCadastro(string nome, string cpf, string email, string senha)
+        // {
+        //     try
+        //     {
+        //         string sql = "INSERT INTO Titular (Nome, Cpf, Email, Senha) VALUES (@Nome, @Cpf, @Email, @Senha)";
+        //             SqlCommand comando = new SqlCommand(sql, conn);
+        //             comando.Parameters.AddWithValue("@Nome", nome);
+        //             comando.Parameters.AddWithValue("@Cpf", cpf);
+        //             comando.Parameters.AddWithValue("@Email", email);
+        //             comando.Parameters.AddWithValue("@Senha", senha);
+        // 
+        //         int linhasAfetadas = comando.ExecuteNonQuery();
+        // 
+        //         return linhasAfetadas > 0;
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         MessageBox.Show("Ocorreu um erro: " + ex.Message);
+        //         return false;
+        //     }
+        // }
     }
-
 }

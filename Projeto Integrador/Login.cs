@@ -22,9 +22,18 @@ namespace Projeto_Integrador
             //Conexao db = new Conexao();
             //db.Conectar();
 
-            //UsuarioDoBanco usuario = new UsuarioDoBanco();  
-            //usuario.CPF = textBox1.Text;
-            //usuario.Senha = textBox2.Text;
+            //UsuarioDoBanco usuario = new UsuarioDoBanco();  -- classe -- arrumar
+            //usuario.cpf = textBox1.Text;
+            //usuario.senha = textBox2.Text;
+
+
+            // Ver se tem campos não preenchidos
+            //if (usuario.IsNullOrEmpty(cpf) || usuario.IsNullOrEmpty(senha))
+            // {
+            //     MessageBox.Show("Por favor, preencha todos os campos.");
+            //     return;
+            // }
+
 
             //Buscar usuário e senha do banco de dados
             //var retorno = db.BuscarUsuario(usuario.CPF, usuario.Senha);

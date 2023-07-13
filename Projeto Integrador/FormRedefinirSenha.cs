@@ -19,22 +19,44 @@ namespace Projeto_Integrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-           // Conexao db = new Conexao();
-           // db.Conectar();
-         
-           // AtualizarSenha atualizar = new AtualizarSenha();
-           // atualizar.CPF = TextBox;
-           // atualizar.senhaNova = TextBox;
-           //
-           // var resultado = db.AtualizarSenha(atualizar.CPF, atualizar.novaSenha);
-           // if (resultado == true)
-           // {
-           //     MessageBox.Show("Senha redefinida com sucesso!");
-           // }
-           // else
-           // {
-           //     MessageBox.Show("Não foi possível redefinir a senha.");
-           // }
+            // Conexao db = new Conexao();
+            // db.Conectar();
+
+            // AtualizarSenha atualizar = new AtualizarSenha();  -- classe -- arrumar
+            // atualizar.cpf = TextBox;
+            // atualizar.senhaAntiga = TexBox;
+            // atualizar.senhaNova = TextBox;
+
+
+            // Ver se tem campos não preenchidos
+            //if (atualizar.IsNullOrEmpty(cpf) || atualizar.IsNullOrEmpty(senhaAntiga) || atualizar.IsNullOrEmpty(senhaNova))
+            // {
+            //     MessageBox.Show("Por favor, preencha todos os campos.");
+            //     return;
+            // }
+
+
+            // Verificar se a senha antiga está correta
+            // bool senhaAntigaCorreta = db.VerificarSenhaAntiga(cpf, senhaAntiga);
+            // 
+            // if (!senhaAntigaCorreta)
+            // {
+            //     MessageBox.Show("Senha antiga incorreta.");
+            //     return;
+            // }
+            // 
+
+            // // Atualizar a senha
+            // bool senhaAtualizada = db.AtualizarSenha(cpf, novaSenha);
+            // 
+            // if (senhaAtualizada)
+            // {
+            //     MessageBox.Show("Senha redefinida com sucesso!");
+            // }
+            // else
+            // {
+            //     MessageBox.Show("Não foi possível redefinir a senha.");
+            // }
         }
     }
 }
