@@ -44,7 +44,7 @@ namespace Projeto_Integrador
             // if (criarSenha != confirmarSenha)
             // {
             //     MessageBox.Show("A senha e a confirmação de senha não coincidem.");
-            //     return;
+            //     textBox4.Text = "";
             // }
             // bool inserido = conexao.InserirUsuario(usuario, senha);  -- método --
             // if (inserido)
