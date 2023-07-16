@@ -21,7 +21,7 @@ namespace Projeto_Integrador
         }
 
 
-        // CONFIRMAÇÃO DOS USUARIO
+        // VALIDAÇÃO DO USUARIO E QUEM ESTA ACESSANDO 
         public string BuscarTipoUsuario(string cpf, string senha)
         {
             string sql = $@"SELECT 'Titular' AS TipoUsuario
