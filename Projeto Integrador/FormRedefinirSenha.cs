@@ -26,7 +26,6 @@ namespace Projeto_Integrador
             string senhaAntiga = textBox2.Text;
             string senhaNova = textBox3.Text;
 
-
             // Ver se tem campos não preenchidos
             if (string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(senhaAntiga) || string.IsNullOrEmpty(senhaNova))
             {
@@ -34,27 +33,32 @@ namespace Projeto_Integrador
                 return;
             }
 
-            // Verificar a correspondência do CPF e da senha antiga nas tabelas "Titular" e "Dependente"
-            bool cpfESenhaAntigaValidos = db.VerificarCpfESenhaAntiga(cpf, senhaAntiga);
-
-            if (cpfESenhaAntigaValidos)
+            // Exibir MessageBox de confirmação
+            DialogResult result = MessageBox.Show("Deseja redefinir a senha?", "Confirmação", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                // Alterar a senha
-                bool alteracaoSenhaSucesso = db.AlterarSenha(cpf, senhaNova);
+                // Verificar a correspondência do CPF e da senha antiga nas tabelas "Titular" e "Dependente"
+                bool cpfESenhaAntigaValidos = db.VerificarCpfESenhaAntiga(cpf, senhaAntiga);
 
-                if (alteracaoSenhaSucesso)
+                if (cpfESenhaAntigaValidos)
                 {
-                    MessageBox.Show("Senha alterada com sucesso!");
-                    LimparCampos();
+                    // Alterar a senha
+                    bool alteracaoSenhaSucesso = db.AlterarSenha(cpf, senhaNova);
+
+                    if (alteracaoSenhaSucesso)
+                    {
+                        MessageBox.Show("Senha alterada com sucesso!");
+                        LimparCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao alterar a senha. Por favor, tente novamente.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao alterar a senha. Por favor, tente novamente.");
+                    MessageBox.Show("CPF e/ou senha antiga inválidos. Por favor, verifique suas informações.");
                 }
-            }
-            else
-            {
-                MessageBox.Show("CPF e/ou senha antiga inválidos. Por favor, verifique suas informações.");
             }
         }
         private void LimparCampos()
