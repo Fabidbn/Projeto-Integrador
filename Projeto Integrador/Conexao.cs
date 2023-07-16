@@ -22,18 +22,25 @@ namespace Projeto_Integrador
 
 
         // CONFIRMAÇÃO DOS USUARIO
-         public bool BuscarUsuario(string CPF, string senha)
-         {
-             string sql = $"select * from Usuario where CPF = '{CPF}' and Senha = '{senha}' ";
-             SqlCommand comando = new SqlCommand(sql, conn);
-        
-             var retorno = comando.ExecuteReader();
-        
-             if (retorno.Read())
-                 return true;
-        
-             return false;
-         }
+        public string BuscarTipoUsuario(string cpf, string senha)
+        {
+            string sql = $@"SELECT 'Titular' AS TipoUsuario
+                    FROM Titular
+                    WHERE cpf = '{cpf}' AND senhaTitular = '{senha}'
+                    UNION
+                    SELECT 'Dependente' AS TipoUsuario
+                    FROM Dependente
+                    WHERE cpf = '{cpf}' AND senhaDependente = '{senha}'";
+
+            SqlCommand comando = new SqlCommand(sql, conn);
+
+            var retorno = comando.ExecuteReader();
+
+            if (retorno.Read())
+                return retorno["TipoUsuario"].ToString();
+
+            return string.Empty;
+        }
 
 
 

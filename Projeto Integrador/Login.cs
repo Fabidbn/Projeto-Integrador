@@ -19,37 +19,36 @@ namespace Projeto_Integrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Conexao db = new Conexao();
-            //db.Conectar();
+            Conexao db = new Conexao();
+            db.Conectar();
 
-            //UsuarioDoBanco usuario = new UsuarioDoBanco();  -- classe -- arrumar
-            //usuario.cpf = textBox1.Text;
-            //usuario.senha = textBox2.Text;
-
+            string cpf = textBox1.Text;
+            string senha = textBox2.Text;
 
             // Ver se tem campos não preenchidos
-            //if (usuario.IsNullOrEmpty(cpf) || usuario.IsNullOrEmpty(senha))
-            // {
-            //     MessageBox.Show("Por favor, preencha todos os campos.");
-            //     return;
-            // }
+            if (string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(senha))
+             {
+                 MessageBox.Show("Por favor, preencha todos os campos.");
+                 return;
+             }
 
-
+            
             //Buscar usuário e senha do banco de dados
-            //var retorno = db.BuscarUsuario(usuario.CPF, usuario.Senha);
+            string tipoUsuario = db.BuscarTipoUsuario(cpf, senha);
 
-            //if (!retorno) // ! = negação
+            if (!string.IsNullOrEmpty(tipoUsuario))
             {
-                //    MessageBox.Show("Senha incorreta!");
+                // Login bem-sucedido, redirecionar para a tela de acesso
+                Acesso___Inicio acesso = new Acesso___Inicio(tipoUsuario);
+                acesso.Show();
+                this.Hide();
             }
-            //if (retorno)
+            else
             {
-                //    int usuarioId = db.BuscarId(usuario.CPF);     -- usar caso necessário --
-                //    MessageBox.Show("Bem-vindo!");
+                // Exibir mensagem de erro de login inválido
+                MessageBox.Show("CPF e/ou senha inválidos. Por favor, tente novamente.");
+            }
 
-                Acesso___Inicio acesso = new Acesso___Inicio();
-                acesso.ShowDialog();
-            } 
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

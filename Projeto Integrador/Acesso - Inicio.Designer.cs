@@ -39,9 +39,9 @@
             cadastrarDependenteToolStripMenuItem = new ToolStripMenuItem();
             novoCadastroToolStripMenuItem = new ToolStripMenuItem();
             verDependentesToolStripMenuItem = new ToolStripMenuItem();
-            sairToolStripMenuItem = new ToolStripMenuItem();
             exameToolStripMenuItem = new ToolStripMenuItem();
             seusExamesToolStripMenuItem = new ToolStripMenuItem();
+            sairToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,14 +64,14 @@
             // todosToolStripMenuItem
             // 
             todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            todosToolStripMenuItem.Size = new Size(180, 22);
+            todosToolStripMenuItem.Size = new Size(143, 22);
             todosToolStripMenuItem.Text = "Todos";
             todosToolStripMenuItem.Click += todosToolStripMenuItem_Click;
             // 
             // confirmadosToolStripMenuItem
             // 
             confirmadosToolStripMenuItem.Name = "confirmadosToolStripMenuItem";
-            confirmadosToolStripMenuItem.Size = new Size(180, 22);
+            confirmadosToolStripMenuItem.Size = new Size(143, 22);
             confirmadosToolStripMenuItem.Text = "Confirmados";
             // 
             // minhasFaturasToolStripMenuItem
@@ -84,19 +84,19 @@
             // emAbertoToolStripMenuItem
             // 
             emAbertoToolStripMenuItem.Name = "emAbertoToolStripMenuItem";
-            emAbertoToolStripMenuItem.Size = new Size(180, 22);
+            emAbertoToolStripMenuItem.Size = new Size(129, 22);
             emAbertoToolStripMenuItem.Text = "Ver todas ";
             // 
             // pagasToolStripMenuItem
             // 
             pagasToolStripMenuItem.Name = "pagasToolStripMenuItem";
-            pagasToolStripMenuItem.Size = new Size(180, 22);
+            pagasToolStripMenuItem.Size = new Size(129, 22);
             pagasToolStripMenuItem.Text = "Pagas";
             // 
             // emAbertoToolStripMenuItem1
             // 
             emAbertoToolStripMenuItem1.Name = "emAbertoToolStripMenuItem1";
-            emAbertoToolStripMenuItem1.Size = new Size(180, 22);
+            emAbertoToolStripMenuItem1.Size = new Size(129, 22);
             emAbertoToolStripMenuItem1.Text = "Pendentes";
             // 
             // cadastrarDependenteToolStripMenuItem
@@ -109,20 +109,14 @@
             // novoCadastroToolStripMenuItem
             // 
             novoCadastroToolStripMenuItem.Name = "novoCadastroToolStripMenuItem";
-            novoCadastroToolStripMenuItem.Size = new Size(180, 22);
+            novoCadastroToolStripMenuItem.Size = new Size(164, 22);
             novoCadastroToolStripMenuItem.Text = "Novo Cadastro ";
             // 
             // verDependentesToolStripMenuItem
             // 
             verDependentesToolStripMenuItem.Name = "verDependentesToolStripMenuItem";
-            verDependentesToolStripMenuItem.Size = new Size(180, 22);
+            verDependentesToolStripMenuItem.Size = new Size(164, 22);
             verDependentesToolStripMenuItem.Text = "Ver dependentes ";
-            // 
-            // sairToolStripMenuItem
-            // 
-            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(38, 20);
-            sairToolStripMenuItem.Text = "Sair";
             // 
             // exameToolStripMenuItem
             // 
@@ -134,8 +128,14 @@
             // seusExamesToolStripMenuItem
             // 
             seusExamesToolStripMenuItem.Name = "seusExamesToolStripMenuItem";
-            seusExamesToolStripMenuItem.Size = new Size(180, 22);
+            seusExamesToolStripMenuItem.Size = new Size(141, 22);
             seusExamesToolStripMenuItem.Text = "Seus Exames";
+            // 
+            // sairToolStripMenuItem
+            // 
+            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            sairToolStripMenuItem.Size = new Size(38, 20);
+            sairToolStripMenuItem.Text = "Sair";
             // 
             // Acesso___Inicio
             // 
@@ -145,6 +145,7 @@
             Controls.Add(menuStrip1);
             Name = "Acesso___Inicio";
             Text = "Acesso___Inicio";
+            Load += Acesso___Inicio_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
