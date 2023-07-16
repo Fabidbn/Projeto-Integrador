@@ -23,38 +23,51 @@ namespace Projeto_Integrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Conexao db = new Conexao();
-            //db.Conectar();
+            Conexao db = new Conexao();
+            db.Conectar();
 
-            // --- classe ---
-            // usuario.nome = textBox1.Text;
-            // usuario.cpf = textBox2.Text;
-            // usuario.e-mail = textBox4.Text;
-            // usuario.senha = textBox3.Text;
-            // usuario.confirmarSenha = textBox5.Text;
+             Titular novoTitular = new Titular();
+             novoTitular.nome = textBox1.Text;
+             novoTitular.cpf = textBox2.Text;
+             novoTitular.email = textBox4.Text;
+             novoTitular.senhaTitular = textBox3.Text;
+             string confirmarSenha = textBox5.Text;
 
             // Ver se tem campos não preenchidos
-            // if (usuario.IsNullOrEmpty(nome) || usuario.IsNullOrEmpty(cpf) || usuario.IsNullOrEmpty(e-mail) || usuario.IsNullOrEmpty(senha) || usuario.IsNullOrEmpty(confirmarSenha))
-            // {
-            //     MessageBox.Show("Por favor, preencha todos os campos.");
-            //     return;
-            // }
-            // 
+            if (string.IsNullOrEmpty(novoTitular.nome) || string.IsNullOrEmpty(novoTitular.cpf) || string.IsNullOrEmpty(novoTitular.email) || string.IsNullOrEmpty(novoTitular.senhaTitular) || string.IsNullOrEmpty(confirmarSenha))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos.");
+                return;
+            }
+
+
             // // Validar se a senha e a confirmação de senha são iguais
-            // if (criarSenha != confirmarSenha)
-            // {
-            //     MessageBox.Show("A senha e a confirmação de senha não coincidem.");
-            //     textBox4.Text = "";
-            // }
-            // bool inserido = conexao.InserirUsuario(usuario, senha);  -- método --
-            // if (inserido)
-            // {
-            //     MessageBox.Show("Cadastro realizado com sucesso!");
-            // }
-            // else
-            // {
-            //     MessageBox.Show("Erro ao cadastrar");
-            // }
+            if (novoTitular.senhaTitular != confirmarSenha)
+            {
+                MessageBox.Show("A senha e a confirmação de senha não coincidem.");
+                textBox5.Text = "";
+                return;
+            }
+
+            bool inserido = db.InserirCadastro(novoTitular.nome, novoTitular.cpf, novoTitular.email, novoTitular.senhaTitular);
+
+            if (inserido)
+             {
+                 MessageBox.Show("Cadastro realizado com sucesso!");
+                 LimparCampos();
+             }
+             else
+             {
+                 MessageBox.Show("Erro ao cadastrar");
+             }
+        }
+        private void LimparCampos()
+        {
+            textBox1.Text = string.Empty;
+            textBox2.Text = string.Empty;
+            textBox3.Text = string.Empty;
+            textBox4.Text = string.Empty;
+            textBox5.Text = string.Empty;
         }
     }
 }

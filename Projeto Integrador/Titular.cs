@@ -8,11 +8,11 @@ namespace Projeto_Integrador
 {
     public class Titular
     {
-        public string Codigo { get; set; }
-        public string Nome{ get; set; }
-        public string Cpf { get; set; }
-        public string Email { get; set; }
-        public int SenhaTitular { get; set; }
-        
+        public string codigo { get; set; }
+        public string nome { get; set; }
+        public string cpf { get; set; }
+        public string email { get; set; }
+        public string senhaTitular { get; set; }
     }
+
 }
