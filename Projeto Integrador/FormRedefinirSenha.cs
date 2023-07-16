@@ -19,44 +19,50 @@ namespace Projeto_Integrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Conexao db = new Conexao();
-            // db.Conectar();
+            Conexao db = new Conexao();
+            db.Conectar();
 
-            // AtualizarSenha atualizar = new AtualizarSenha();  -- classe -- arrumar
-            // atualizar.cpf = TextBox;
-            // atualizar.senhaAntiga = TexBox;
-            // atualizar.senhaNova = TextBox;
+            string cpf = textBox1.Text;
+            string senhaAntiga = textBox2.Text;
+            string senhaNova = textBox3.Text;
 
 
             // Ver se tem campos não preenchidos
-            //if (atualizar.IsNullOrEmpty(cpf) || atualizar.IsNullOrEmpty(senhaAntiga) || atualizar.IsNullOrEmpty(senhaNova))
-            // {
-            //     MessageBox.Show("Por favor, preencha todos os campos.");
-            //     return;
-            // }
+            if (string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(senhaAntiga) || string.IsNullOrEmpty(senhaNova))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos.");
+                return;
+            }
 
+            // Verificar a correspondência do CPF e da senha antiga nas tabelas "Titular" e "Dependente"
+            bool cpfESenhaAntigaValidos = db.VerificarCpfESenhaAntiga(cpf, senhaAntiga);
 
-            // Verificar se a senha antiga está correta
-            // bool senhaAntigaCorreta = db.VerificarSenhaAntiga(cpf, senhaAntiga);
-            // 
-            // if (!senhaAntigaCorreta)
-            // {
-            //     MessageBox.Show("Senha antiga incorreta.");
-            //     return;
-            // }
-            // 
+            if (cpfESenhaAntigaValidos)
+            {
+                // Alterar a senha
+                bool alteracaoSenhaSucesso = db.AlterarSenha(cpf, senhaNova);
 
-            // // Atualizar a senha
-            // bool senhaAtualizada = db.AtualizarSenha(cpf, novaSenha);
-            // 
-            // if (senhaAtualizada)
-            // {
-            //     MessageBox.Show("Senha redefinida com sucesso!");
-            // }
-            // else
-            // {
-            //     MessageBox.Show("Não foi possível redefinir a senha.");
-            // }
+                if (alteracaoSenhaSucesso)
+                {
+                    MessageBox.Show("Senha alterada com sucesso!");
+                    LimparCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar a senha. Por favor, tente novamente.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("CPF e/ou senha antiga inválidos. Por favor, verifique suas informações.");
+            }
+        }
+        private void LimparCampos()
+        {
+            textBox1.Text = string.Empty;
+            textBox2.Text = string.Empty;
+            textBox3.Text = string.Empty;
         }
     }
 }
+

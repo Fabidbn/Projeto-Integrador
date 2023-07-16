@@ -29,5 +29,12 @@ namespace Projeto_Integrador
         {
 
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
     }
 }

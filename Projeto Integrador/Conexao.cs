@@ -24,39 +24,59 @@ namespace Projeto_Integrador
         // VALIDAÇÃO DO USUARIO E QUEM ESTA ACESSANDO 
         public string BuscarTipoUsuario(string cpf, string senha)
         {
-            string sql = $@"SELECT 'Titular' AS TipoUsuario
-                    FROM Titular
-                    WHERE cpf = '{cpf}' AND senhaTitular = '{senha}'
-                    UNION
-                    SELECT 'Dependente' AS TipoUsuario
-                    FROM Dependente
-                    WHERE cpf = '{cpf}' AND senhaDependente = '{senha}'";
+            try
+            {
+                string sqlTitular = $"SELECT 'Titular' AS TipoUsuario FROM Titular WHERE cpf = @cpf AND senhaTitular = @Senha";
+                string sqlDependente = $"SELECT 'Dependente' AS TipoUsuario FROM Dependente WHERE cpf = @cpf AND senhaDependente = @Senha";
 
-            SqlCommand comando = new SqlCommand(sql, conn);
+                SqlCommand comandoTitular = new SqlCommand(sqlTitular, conn);
+                comandoTitular.Parameters.AddWithValue("@CPF", cpf);
+                comandoTitular.Parameters.AddWithValue("@Senha", senha);
 
-            var retorno = comando.ExecuteReader();
+                SqlCommand comandoDependente = new SqlCommand(sqlDependente, conn);
+                comandoDependente.Parameters.AddWithValue("@CPF", cpf);
+                comandoDependente.Parameters.AddWithValue("@Senha", senha);
 
-            if (retorno.Read())
-                return retorno["TipoUsuario"].ToString();
+                string tipoUsuario = string.Empty;
 
-            return string.Empty;
+                if (comandoTitular.ExecuteScalar() != null)
+                {
+                    tipoUsuario = comandoTitular.ExecuteScalar().ToString();
+                }
+                else if (comandoDependente.ExecuteScalar() != null)
+                {
+                    tipoUsuario = comandoDependente.ExecuteScalar().ToString();
+                }
+
+                return tipoUsuario;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+                return string.Empty;
+            }
         }
 
-
-
-        // VERIFICAR A SENHA NO BANCO PARA CRIAR UMA NOVA
-        public bool VerificarSenhaAntiga(string cpf, string senhaAntiga)
+        // VERIFICAR O CPF E A SENHA PRA ATUALIZAR A SENHA
+        public bool VerificarCpfESenhaAntiga(string cpf, string senhaAntiga)
         {
             try
             {
-                string sql = "SELECT COUNT(*) FROM Usuario WHERE CPF = @CPF AND Senha = @SenhaAntiga";
-                SqlCommand comando = new SqlCommand(sql, conn);
-                comando.Parameters.AddWithValue("@CPF", cpf);
-                comando.Parameters.AddWithValue("@SenhaAntiga", senhaAntiga);
-        
-                int senhaCorrespondente = (int)comando.ExecuteScalar();
-        
-                return senhaCorrespondente > 0;
+                string sqlTitular = "SELECT COUNT(*) FROM Titular WHERE CPF = @CPF AND SenhaTitular = @SenhaAntiga";
+                string sqlDependente = "SELECT COUNT(*) FROM Dependente WHERE CPF = @CPF AND SenhaDependente = @SenhaAntiga";
+
+                SqlCommand comandoTitular = new SqlCommand(sqlTitular, conn);
+                comandoTitular.Parameters.AddWithValue("@CPF", cpf);
+                comandoTitular.Parameters.AddWithValue("@SenhaAntiga", senhaAntiga);
+
+                SqlCommand comandoDependente = new SqlCommand(sqlDependente, conn);
+                comandoDependente.Parameters.AddWithValue("@CPF", cpf);
+                comandoDependente.Parameters.AddWithValue("@SenhaAntiga", senhaAntiga);
+
+                int countTitular = (int)comandoTitular.ExecuteScalar();
+                int countDependente = (int)comandoDependente.ExecuteScalar();
+
+                return countTitular > 0 || countDependente > 0;
             }
             catch (Exception ex)
             {
@@ -64,6 +84,56 @@ namespace Projeto_Integrador
                 return false;
             }
         }
+
+        // ALTERAÇÃO DA SENHA
+        public bool AlterarSenha(string cpf, string senhaNova)
+        {
+            try
+            {
+                string sqlTitular = "UPDATE Titular SET SenhaTitular = @SenhaNova WHERE CPF = @CPF";
+                string sqlDependente = "UPDATE Dependente SET SenhaDependente = @SenhaNova WHERE CPF = @CPF";
+
+                SqlCommand comandoTitular = new SqlCommand(sqlTitular, conn);
+                comandoTitular.Parameters.AddWithValue("@SenhaNova", senhaNova);
+                comandoTitular.Parameters.AddWithValue("@CPF", cpf);
+
+                SqlCommand comandoDependente = new SqlCommand(sqlDependente, conn);
+                comandoDependente.Parameters.AddWithValue("@SenhaNova", senhaNova);
+                comandoDependente.Parameters.AddWithValue("@CPF", cpf);
+
+                int rowsAffectedTitular = comandoTitular.ExecuteNonQuery();
+                int rowsAffectedDependente = comandoDependente.ExecuteNonQuery();
+
+                return rowsAffectedTitular > 0 || rowsAffectedDependente > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+                return false;
+            }
+        }
+
+
+        // VERIFICAR A SENHA NO BANCO PARA CRIAR UMA NOVA
+        //public bool VerificarSenhaAntiga(string cpf, string senhaAntiga)
+        //{
+        //    try
+        //    {
+        //        string sql = "SELECT COUNT(*) FROM Usuario WHERE CPF = @CPF AND Senha = @SenhaAntiga";
+        //        SqlCommand comando = new SqlCommand(sql, conn);
+        //        comando.Parameters.AddWithValue("@CPF", cpf);
+        //        comando.Parameters.AddWithValue("@SenhaAntiga", senhaAntiga);
+        //
+        //        int senhaCorrespondente = (int)comando.ExecuteScalar();
+        //
+        //        return senhaCorrespondente > 0;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Ocorreu um erro: " + ex.Message);
+        //        return false;
+        //    }
+        //}
 
 
         // public bool AtualizarSenha(string cpf, string novaSenha)
@@ -94,7 +164,6 @@ namespace Projeto_Integrador
         //     }
         // }
 
-        // REDEFINIR SENHA
 
         // INSERIR CADASTRO DO TITULAR
         public bool InserirCadastro(string nome, string cpf, string email, string senha)
