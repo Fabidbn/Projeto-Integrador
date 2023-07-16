@@ -40,6 +40,8 @@
             button1 = new Button();
             label6 = new Label();
             textBox5 = new TextBox();
+            label7 = new Label();
+            textBox6 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -54,7 +56,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(208, 117);
+            label2.Location = new Point(195, 122);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
             label2.TabIndex = 1;
@@ -63,29 +65,29 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(208, 159);
+            label3.Location = new Point(195, 159);
             label3.Name = "label3";
-            label3.Size = new Size(114, 15);
+            label3.Size = new Size(28, 15);
             label3.TabIndex = 2;
-            label3.Text = "Data de Nascimento";
+            label3.Text = "CPF";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(208, 195);
+            label4.Location = new Point(195, 195);
             label4.Name = "label4";
-            label4.Size = new Size(28, 15);
+            label4.Size = new Size(41, 15);
             label4.TabIndex = 3;
-            label4.Text = "CPF";
+            label4.Text = "E-mail";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(208, 232);
+            label5.Location = new Point(195, 232);
             label5.Name = "label5";
-            label5.Size = new Size(41, 15);
+            label5.Size = new Size(75, 15);
             label5.TabIndex = 4;
-            label5.Text = "E-mail";
+            label5.Text = "Senha Titular";
             // 
             // textBox1
             // 
@@ -96,10 +98,11 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(328, 151);
+            textBox2.Location = new Point(254, 151);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(188, 23);
+            textBox2.Size = new Size(262, 23);
             textBox2.TabIndex = 6;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox3
             // 
@@ -110,42 +113,61 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(254, 224);
+            textBox4.Location = new Point(290, 224);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(262, 23);
+            textBox4.Size = new Size(226, 23);
             textBox4.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(290, 319);
+            button1.Location = new Point(290, 336);
             button1.Name = "button1";
             button1.Size = new Size(171, 23);
             button1.TabIndex = 9;
             button1.Text = "Cadastrar Dependente";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(216, 269);
+            label6.Location = new Point(195, 269);
             label6.Name = "label6";
-            label6.Size = new Size(75, 15);
+            label6.Size = new Size(89, 15);
             label6.TabIndex = 10;
-            label6.Text = "Senha Titular";
+            label6.Text = "Crie uma senha";
             label6.Click += label6_Click;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(297, 261);
+            textBox5.Location = new Point(290, 261);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(219, 23);
+            textBox5.Size = new Size(226, 23);
             textBox5.TabIndex = 11;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(195, 301);
+            label7.Name = "label7";
+            label7.Size = new Size(95, 15);
+            label7.TabIndex = 12;
+            label7.Text = "Confirmar senha";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(290, 298);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(226, 23);
+            textBox6.TabIndex = 13;
             // 
             // FormDepNovo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox6);
+            Controls.Add(label7);
             Controls.Add(textBox5);
             Controls.Add(label6);
             Controls.Add(button1);
@@ -178,5 +200,7 @@
         private Button button1;
         private Label label6;
         private TextBox textBox5;
+        private Label label7;
+        private TextBox textBox6;
     }
 }
