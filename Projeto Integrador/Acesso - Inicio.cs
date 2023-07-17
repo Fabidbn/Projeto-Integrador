@@ -44,7 +44,7 @@ namespace Projeto_Integrador
 
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDepNovo depNovo = new FormDepNovo(codigoTitular);
+            FormDepNovo depNovo = new FormDepNovo();
             depNovo.Show();
             this.Hide();
         }
