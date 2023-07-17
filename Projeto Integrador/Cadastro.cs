@@ -21,6 +21,7 @@ namespace Projeto_Integrador
 
         }
 
+<<<<<<< HEAD
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Deseja cadastrar?", "Confirmação", MessageBoxButtons.YesNo);
@@ -71,6 +72,11 @@ namespace Projeto_Integrador
             textBox3.Text = string.Empty;
             textBox4.Text = string.Empty;
             textBox5.Text = string.Empty;
+=======
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> origin/fabi_nova
         }
     }
 }

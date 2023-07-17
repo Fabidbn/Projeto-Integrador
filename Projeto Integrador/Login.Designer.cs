@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             label1 = new Label();
             label2 = new Label();
             linkLabel1 = new LinkLabel();
@@ -41,7 +42,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(276, 138);
+            label1.BackColor = Color.Transparent;
+            label1.Location = new Point(503, 141);
             label1.Name = "label1";
             label1.Size = new Size(28, 15);
             label1.TabIndex = 0;
@@ -50,7 +52,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(276, 208);
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(503, 212);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 1;
@@ -59,7 +62,9 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(333, 353);
+            linkLabel1.BackColor = Color.Transparent;
+            linkLabel1.LinkColor = Color.Black;
+            linkLabel1.Location = new Point(546, 362);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(119, 15);
             linkLabel1.TabIndex = 2;
@@ -70,6 +75,8 @@
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
+            linkLabel2.BackColor = Color.Transparent;
+            linkLabel2.LinkColor = Color.Black;
             linkLabel2.Location = new Point(628, 9);
             linkLabel2.Name = "linkLabel2";
             linkLabel2.Size = new Size(160, 15);
@@ -81,7 +88,9 @@
             // linkLabel3
             // 
             linkLabel3.AutoSize = true;
-            linkLabel3.Location = new Point(503, 9);
+            linkLabel3.BackColor = Color.Transparent;
+            linkLabel3.LinkColor = Color.Black;
+            linkLabel3.Location = new Point(468, 9);
             linkLabel3.Name = "linkLabel3";
             linkLabel3.Size = new Size(106, 15);
             linkLabel3.TabIndex = 4;
@@ -91,22 +100,27 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(276, 156);
+            textBox1.Location = new Point(503, 159);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(224, 23);
             textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(276, 226);
+            textBox2.Location = new Point(503, 230);
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(224, 23);
             textBox2.TabIndex = 6;
             // 
             // button1
             // 
+<<<<<<< HEAD
             button1.Cursor = Cursors.Hand;
             button1.Location = new Point(346, 281);
+=======
+            button1.Location = new Point(561, 294);
+>>>>>>> origin/fabi_nova
             button1.Name = "button1";
             button1.Size = new Size(94, 28);
             button1.TabIndex = 7;
@@ -118,7 +132,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(800, 500);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
