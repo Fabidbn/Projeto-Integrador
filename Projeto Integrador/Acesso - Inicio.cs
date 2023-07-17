@@ -41,7 +41,7 @@ namespace Projeto_Integrador
 
         private void verDependentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDepVerTodos verTodos = new FormDepVerTodos();
+            FormDepVerTodos verTodos = new FormDepVerTodos(codigoTitular);
             verTodos.Show();
             this.Hide();
         }
