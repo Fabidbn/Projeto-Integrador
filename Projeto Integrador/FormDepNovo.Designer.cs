@@ -45,81 +45,87 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(290, 54);
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(255, 56);
             label1.Name = "label1";
-            label1.Size = new Size(137, 15);
+            label1.Size = new Size(232, 25);
             label1.TabIndex = 0;
             label1.Text = "Cadastro de Dependente";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(208, 117);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(179, 124);
             label2.Name = "label2";
-            label2.Size = new Size(40, 15);
+            label2.Size = new Size(45, 17);
             label2.TabIndex = 1;
             label2.Text = "Nome";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(208, 159);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(179, 173);
             label3.Name = "label3";
-            label3.Size = new Size(114, 15);
+            label3.Size = new Size(131, 17);
             label3.TabIndex = 2;
             label3.Text = "Data de Nascimento";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(208, 195);
+            label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(179, 230);
             label4.Name = "label4";
-            label4.Size = new Size(28, 15);
+            label4.Size = new Size(31, 17);
             label4.TabIndex = 3;
             label4.Text = "CPF";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(208, 232);
+            label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(179, 286);
             label5.Name = "label5";
-            label5.Size = new Size(41, 15);
+            label5.Size = new Size(45, 17);
             label5.TabIndex = 4;
             label5.Text = "E-mail";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(254, 114);
+            textBox1.Location = new Point(179, 142);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(262, 23);
+            textBox1.Size = new Size(388, 23);
             textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(328, 151);
+            textBox2.Location = new Point(179, 191);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(188, 23);
+            textBox2.Size = new Size(388, 23);
             textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(254, 187);
+            textBox3.Location = new Point(179, 248);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(262, 23);
+            textBox3.Size = new Size(388, 23);
             textBox3.TabIndex = 7;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(254, 224);
+            textBox4.Location = new Point(179, 304);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(262, 23);
+            textBox4.Size = new Size(388, 23);
             textBox4.TabIndex = 8;
             // 
             // button1
             // 
-            button1.Location = new Point(290, 319);
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(271, 419);
             button1.Name = "button1";
-            button1.Size = new Size(171, 23);
+            button1.Size = new Size(231, 33);
             button1.TabIndex = 9;
             button1.Text = "Cadastrar Dependente";
             button1.UseVisualStyleBackColor = true;
@@ -127,25 +133,26 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(216, 269);
+            label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(179, 338);
             label6.Name = "label6";
-            label6.Size = new Size(75, 15);
+            label6.Size = new Size(87, 17);
             label6.TabIndex = 10;
             label6.Text = "Senha Titular";
             label6.Click += label6_Click;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(297, 261);
+            textBox5.Location = new Point(179, 356);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(219, 23);
+            textBox5.Size = new Size(388, 23);
             textBox5.TabIndex = 11;
             // 
             // FormDepNovo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(739, 566);
             Controls.Add(textBox5);
             Controls.Add(label6);
             Controls.Add(button1);

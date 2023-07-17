@@ -44,91 +44,98 @@
             // 
             // button1
             // 
-            button1.Location = new Point(359, 300);
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(300, 441);
             button1.Name = "button1";
-            button1.Size = new Size(94, 28);
+            button1.Size = new Size(135, 35);
             button1.TabIndex = 15;
             button1.Text = "Cadastrar";
             button1.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(288, 112);
+            textBox2.Location = new Point(186, 129);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(224, 23);
+            textBox2.Size = new Size(388, 23);
             textBox2.TabIndex = 14;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(288, 62);
+            textBox1.Location = new Point(186, 282);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(224, 23);
+            textBox1.Size = new Size(388, 23);
             textBox1.TabIndex = 13;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(186, 120);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(187, 161);
             label2.Name = "label2";
-            label2.Size = new Size(28, 15);
+            label2.Size = new Size(31, 17);
             label2.TabIndex = 9;
             label2.Text = "CPF";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(186, 70);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(187, 111);
             label1.Name = "label1";
-            label1.Size = new Size(40, 15);
+            label1.Size = new Size(45, 17);
             label1.TabIndex = 8;
             label1.Text = "Nome";
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(288, 208);
+            textBox3.Location = new Point(187, 231);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(224, 23);
+            textBox3.Size = new Size(387, 23);
             textBox3.TabIndex = 19;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(288, 158);
+            textBox4.Location = new Point(187, 179);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(224, 23);
+            textBox4.Size = new Size(387, 23);
             textBox4.TabIndex = 18;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(186, 216);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(186, 264);
             label3.Name = "label3";
-            label3.Size = new Size(89, 15);
+            label3.Size = new Size(102, 17);
             label3.TabIndex = 17;
             label3.Text = "Crie uma senha";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(186, 166);
+            label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(186, 213);
             label4.Name = "label4";
-            label4.Size = new Size(41, 15);
+            label4.Size = new Size(45, 17);
             label4.TabIndex = 16;
             label4.Text = "E-mail";
+            label4.Click += label4_Click;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(288, 254);
+            textBox5.Location = new Point(187, 345);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(224, 23);
+            textBox5.Size = new Size(387, 23);
             textBox5.TabIndex = 21;
             textBox5.TextChanged += textBox5_TextChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(186, 262);
+            label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(186, 327);
             label5.Name = "label5";
-            label5.Size = new Size(95, 15);
+            label5.Size = new Size(108, 17);
             label5.TabIndex = 20;
             label5.Text = "Confirmar senha";
             label5.Click += label5_Click;
@@ -136,9 +143,10 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(258, 25);
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(165, 34);
             label6.Name = "label6";
-            label6.Size = new Size(254, 15);
+            label6.Size = new Size(428, 25);
             label6.TabIndex = 22;
             label6.Text = "Preencha o formulário e torne-se um membro!";
             label6.Click += label6_Click;
@@ -147,7 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(739, 566);
             Controls.Add(label6);
             Controls.Add(textBox5);
             Controls.Add(label5);

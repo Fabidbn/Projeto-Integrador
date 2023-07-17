@@ -51,7 +51,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { eventosToolStripMenuItem, minhasFaturasToolStripMenuItem, cadastrarDependenteToolStripMenuItem, exameToolStripMenuItem, sairToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 25);
+            menuStrip1.Size = new Size(739, 25);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -143,7 +143,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(739, 566);
             Controls.Add(menuStrip1);
             Name = "Acesso___Inicio";
             Text = "Acesso___Inicio";
