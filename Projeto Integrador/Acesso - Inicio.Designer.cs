@@ -103,20 +103,22 @@
             // 
             cadastrarDependenteToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoCadastroToolStripMenuItem, verDependentesToolStripMenuItem });
             cadastrarDependenteToolStripMenuItem.Name = "cadastrarDependenteToolStripMenuItem";
-            cadastrarDependenteToolStripMenuItem.Size = new Size(136, 20);
-            cadastrarDependenteToolStripMenuItem.Text = "Cadastrar Dependente";
+            cadastrarDependenteToolStripMenuItem.Size = new Size(88, 20);
+            cadastrarDependenteToolStripMenuItem.Text = "Dependentes";
             // 
             // novoCadastroToolStripMenuItem
             // 
             novoCadastroToolStripMenuItem.Name = "novoCadastroToolStripMenuItem";
-            novoCadastroToolStripMenuItem.Size = new Size(164, 22);
-            novoCadastroToolStripMenuItem.Text = "Novo Cadastro ";
+            novoCadastroToolStripMenuItem.Size = new Size(180, 22);
+            novoCadastroToolStripMenuItem.Text = "Novo dependente ";
+            novoCadastroToolStripMenuItem.Click += novoCadastroToolStripMenuItem_Click;
             // 
             // verDependentesToolStripMenuItem
             // 
             verDependentesToolStripMenuItem.Name = "verDependentesToolStripMenuItem";
-            verDependentesToolStripMenuItem.Size = new Size(164, 22);
+            verDependentesToolStripMenuItem.Size = new Size(180, 22);
             verDependentesToolStripMenuItem.Text = "Ver dependentes ";
+            verDependentesToolStripMenuItem.Click += verDependentesToolStripMenuItem_Click;
             // 
             // exameToolStripMenuItem
             // 

@@ -36,5 +36,19 @@ namespace Projeto_Integrador
             login.Show();
             this.Hide();
         }
+
+        private void verDependentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDepVerTodos verTodos = new FormDepVerTodos();
+            verTodos.Show();
+            this.Hide();
+        }
+
+        private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDepNovo depNovo = new FormDepNovo();
+            depNovo.Show();
+            this.Hide();
+        }
     }
 }
