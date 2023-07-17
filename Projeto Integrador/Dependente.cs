@@ -8,12 +8,12 @@ namespace Projeto_Integrador
 {
     public class Dependente
     {
-        public int Codigo { get; set; }
-        public int CodigoTitular { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string Email { get; set; }
-        public string SenhaDependente { get; set; }
+        public int codigo { get; set; }
+        public int codigoTitular { get; set; }
+        public string nome { get; set; }
+        public string cpf { get; set; }
+        public string email { get; set; }
+        public string senhaDependente { get; set; }
 
     }
 }

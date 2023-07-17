@@ -57,6 +57,34 @@ namespace Projeto_Integrador
             }
         }
 
+        // OBTER O CODIGO DO TITULAR
+        public int ObterCodigoTitular(string cpf)
+        {
+            try
+            {
+                string sql = "SELECT codigo FROM Titular WHERE cpf = @CPF";
+                SqlCommand comando = new SqlCommand(sql, conn);
+                comando.Parameters.AddWithValue("@CPF", cpf);
+
+                // Executar o comando e obter o código do titular
+                object resultado = comando.ExecuteScalar();
+
+                if (resultado != null && int.TryParse(resultado.ToString(), out int codigoTitular))
+                {
+                    return codigoTitular;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao obter o código do titular: " + ex.Message);
+                return -1;
+            }
+        }
+        
         // VERIFICAR O CPF E A SENHA PRA ATUALIZAR A SENHA
         public bool VerificarCpfESenhaAntiga(string cpf, string senhaAntiga)
         {
@@ -136,5 +164,51 @@ namespace Projeto_Integrador
             }
         }
 
+        // INSERIR CADASTRO DO DEPENDENTE
+        public bool InserirDependente(Dependente dependente)
+        {
+            try
+            {
+                string sql = "INSERT INTO Dependente (codigoTitular, nome, cpf, email, senhaDependente) VALUES (@CodigoTitular, @Nome, @Cpf, @Email, @Senha)";
+                SqlCommand comando = new SqlCommand(sql, conn);
+                comando.Parameters.AddWithValue("@CodigoTitular", dependente.codigoTitular);
+                comando.Parameters.AddWithValue("@Nome", dependente.nome);
+                comando.Parameters.AddWithValue("@Cpf", dependente.cpf);
+                comando.Parameters.AddWithValue("@Email", dependente.email);
+                comando.Parameters.AddWithValue("@Senha", dependente.senhaDependente);
+
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                return linhasAfetadas > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+                return false;
+            }
+        }
+
+
+        // VERIFICAR A SENHA DO TITULAR
+        public bool VerificarSenhaTitular(int codigoTitular, string senhaTitular)
+        {
+            try
+            {
+                string sql = "SELECT COUNT(*) FROM Titular WHERE codigo = @CodigoTitular AND senhaTitular = @SenhaTitular";
+
+                SqlCommand comando = new SqlCommand(sql, conn);
+                comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+                comando.Parameters.AddWithValue("@SenhaTitular", senhaTitular);
+
+                int countTitular = (int)comando.ExecuteScalar();
+
+                return countTitular > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+                return false;
+            }
+        }
     }
 }

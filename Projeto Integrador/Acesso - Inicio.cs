@@ -13,10 +13,12 @@ namespace Projeto_Integrador
     public partial class Acesso___Inicio : Form
     {
         private string tipoUsuario;
-        public Acesso___Inicio(string tipoUsuario)
+        private int codigoTitular;
+        public Acesso___Inicio(string tipoUsuario, int codigoTitular)
         {
             InitializeComponent();
             this.tipoUsuario = tipoUsuario;
+            this.codigoTitular = codigoTitular;
         }
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace Projeto_Integrador
 
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDepNovo depNovo = new FormDepNovo();
+            FormDepNovo depNovo = new FormDepNovo(codigoTitular);
             depNovo.Show();
             this.Hide();
         }
