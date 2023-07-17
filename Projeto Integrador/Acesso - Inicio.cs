@@ -22,5 +22,31 @@ namespace Projeto_Integrador
             FormEventosTodos todosEventos = new FormEventosTodos();
             todosEventos.ShowDialog();
         }
+
+        private void Acesso___Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void verDependentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDepVerTodos verTodos = new FormDepVerTodos();
+            verTodos.Show();
+            this.Hide();
+        }
+
+        private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDepNovo depNovo = new FormDepNovo(codigoTitular);
+            depNovo.Show();
+            this.Hide();
+        }
     }
 }
