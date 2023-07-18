@@ -147,6 +147,7 @@
             Controls.Add(menuStrip1);
             Name = "Acesso___Inicio";
             Text = "Acesso___Inicio";
+            Load += Acesso___Inicio_Load_1;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
