@@ -40,6 +40,8 @@
             button1 = new Button();
             label6 = new Label();
             textBox5 = new TextBox();
+            label7 = new Label();
+            textBox6 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -66,17 +68,17 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(179, 173);
+            label3.Location = new Point(179, 284);
             label3.Name = "label3";
-            label3.Size = new Size(131, 17);
+            label3.Size = new Size(102, 17);
             label3.TabIndex = 2;
-            label3.Text = "Data de Nascimento";
+            label3.Text = "Crie uma senha";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(179, 230);
+            label4.Location = new Point(179, 171);
             label4.Name = "label4";
             label4.Size = new Size(31, 17);
             label4.TabIndex = 3;
@@ -86,7 +88,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(179, 286);
+            label5.Location = new Point(179, 228);
             label5.Name = "label5";
             label5.Size = new Size(45, 17);
             label5.TabIndex = 4;
@@ -123,12 +125,13 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(271, 419);
+            button1.Location = new Point(268, 458);
             button1.Name = "button1";
             button1.Size = new Size(231, 33);
             button1.TabIndex = 9;
             button1.Text = "Cadastrar Dependente";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label6
             // 
@@ -136,9 +139,9 @@
             label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(179, 338);
             label6.Name = "label6";
-            label6.Size = new Size(87, 17);
+            label6.Size = new Size(114, 17);
             label6.TabIndex = 10;
-            label6.Text = "Senha Titular";
+            label6.Text = "Confirme a senha";
             label6.Click += label6_Click;
             // 
             // textBox5
@@ -148,11 +151,30 @@
             textBox5.Size = new Size(388, 23);
             textBox5.TabIndex = 11;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(179, 393);
+            label7.Name = "label7";
+            label7.Size = new Size(85, 17);
+            label7.TabIndex = 12;
+            label7.Text = "Senha titular";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(179, 413);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(388, 23);
+            textBox6.TabIndex = 13;
+            // 
             // FormDepNovo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(739, 566);
+            Controls.Add(textBox6);
+            Controls.Add(label7);
             Controls.Add(textBox5);
             Controls.Add(label6);
             Controls.Add(button1);
@@ -185,5 +207,7 @@
         private Button button1;
         private Label label6;
         private TextBox textBox5;
+        private Label label7;
+        private TextBox textBox6;
     }
 }
