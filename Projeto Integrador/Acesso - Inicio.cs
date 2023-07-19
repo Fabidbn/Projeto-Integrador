@@ -12,8 +12,8 @@ namespace Projeto_Integrador
 {
     public partial class Acesso___Inicio : Form
     {
-        
-        
+
+
         private string tipoUsuario;
         private int codigoTitular;
         public Acesso___Inicio(string tipoUsuario, int codigoTitular)
@@ -22,7 +22,7 @@ namespace Projeto_Integrador
             this.tipoUsuario = tipoUsuario;
             this.codigoTitular = codigoTitular;
         }
-    
+
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -57,6 +57,51 @@ namespace Projeto_Integrador
         }
 
         private void Acesso___Inicio_Load_1(object sender, EventArgs e)
+        {
+            AcessoPermitidoPeloTipoUsuario();
+        }
+        private void AcessoPermitidoPeloTipoUsuario()
+        {
+            if (tipoUsuario == "Titular")
+            {
+                // Configurar a visibilidade ou habilitação dos campos específicos para o titular
+                eventosToolStripMenuItem.Enabled = true;
+                minhasFaturasToolStripMenuItem.Enabled = true;
+                cadastrarDependenteToolStripMenuItem.Enabled = true;
+                exameToolStripMenuItem.Enabled = true;
+                sairToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                eventosToolStripMenuItem.Enabled = true;
+                minhasFaturasToolStripMenuItem.Enabled = false;
+                cadastrarDependenteToolStripMenuItem.Enabled = false;
+                exameToolStripMenuItem.Enabled = true;
+                sairToolStripMenuItem.Enabled = true;
+            }            
+        }
+
+        private void minhasFaturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastrarDependenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eventosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sairToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
 
         }
