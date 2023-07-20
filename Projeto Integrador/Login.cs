@@ -19,17 +19,45 @@ namespace Projeto_Integrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conexao db = new Conexao();
-            db.Conectar();
-
             string cpf = textBox1.Text;
             string senha = textBox2.Text;
 
-            // Ver se tem campos não preenchidos
+            (string tipoUsuario, int codigoTitular, int codigoDependente) = FazerLogin(cpf, senha);
+
+            if (codigoTitular != -1)
+            {
+                Acesso___Inicio acesso = new Acesso___Inicio(tipoUsuario, codigoTitular, codigoDependente);
+                acesso.Show();
+                this.Hide();
+            }
+        }
+
+            private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            {
+                Cadastro cadastro = new Cadastro();
+                cadastro.Show();
+            }
+
+            private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            {
+                FormNossosPlanos planos = new FormNossosPlanos();
+                planos.Show();
+            }
+
+            private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            {
+                FormRedefinirSenha novaSenha = new FormRedefinirSenha();
+                novaSenha.Show();
+            }
+        private (string tipoUsuario, int codigoTitular, int codigoDependente) FazerLogin(string cpf, string senha)
+        {
+            Conexao db = new Conexao();
+            db.Conectar();
+
             if (string.IsNullOrEmpty(cpf) || string.IsNullOrEmpty(senha))
             {
                 MessageBox.Show("Por favor, preencha todos os campos.");
-                return;
+                return (null, -1, -1);
             }
 
             // Verificar o tipo de usuário (Titular ou Dependente)
@@ -42,10 +70,11 @@ namespace Projeto_Integrador
 
                 if (codigoTitular != -1)
                 {
-                    // Login bem-sucedido, redirecionar para a tela de acesso
-                    Acesso___Inicio acesso = new Acesso___Inicio(tipoUsuario, codigoTitular);
-                    acesso.Show();
-                    this.Hide();
+                    // Obter o código do dependente apenas se o tipo de usuário for "Dependente"
+                    int codigoDependente = tipoUsuario == "Dependente" ? db.ObterCodigoDependente(cpf) : -1;
+
+                    // Retornar o resultado do login com o código do dependente
+                    return (tipoUsuario, codigoTitular, codigoDependente);
                 }
                 else
                 {
@@ -58,25 +87,8 @@ namespace Projeto_Integrador
                 // Exibir mensagem de erro de login inválido
                 MessageBox.Show("CPF e/ou senha inválidos. Por favor, tente novamente.");
             }
-        }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Cadastro cadastro = new Cadastro();
-            cadastro.Show();
+            return (null, -1, -1);
         }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FormNossosPlanos planos = new FormNossosPlanos();
-            planos.Show();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FormRedefinirSenha novaSenha = new FormRedefinirSenha();
-            novaSenha.Show();
-        }
-
     }
 }

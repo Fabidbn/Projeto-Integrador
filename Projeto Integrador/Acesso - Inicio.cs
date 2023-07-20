@@ -16,17 +16,19 @@ namespace Projeto_Integrador
 
         private string tipoUsuario;
         private int codigoTitular;
-        public Acesso___Inicio(string tipoUsuario, int codigoTitular)
+        private int codigoDependente;
+        public Acesso___Inicio(string tipoUsuario, int codigoTitular, int codigoDependente)
         {
             InitializeComponent();
             this.tipoUsuario = tipoUsuario;
             this.codigoTitular = codigoTitular;
+            this.codigoDependente = codigoDependente;
         }
 
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEventosTodos todosEventos = new FormEventosTodos();
+            FormEventosTodos todosEventos = new FormEventosTodos(tipoUsuario, codigoTitular, codigoDependente);
             todosEventos.Show();
 
         }
