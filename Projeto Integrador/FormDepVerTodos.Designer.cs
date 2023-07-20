@@ -40,7 +40,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(38, 36);
+            label1.Location = new Point(12, 47);
             label1.Name = "label1";
             label1.Size = new Size(172, 17);
             label1.TabIndex = 0;
@@ -52,17 +52,19 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 104);
+            dataGridView1.Location = new Point(12, 67);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(734, 215);
+            dataGridView1.Size = new Size(734, 241);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellBeginEdit += dataGridView1_CellBeginEdit;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button2
             // 
             button2.Cursor = Cursors.Hand;
-            button2.Location = new Point(613, 75);
+            button2.Location = new Point(617, 38);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
@@ -84,7 +86,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(758, 331);
+            ClientSize = new Size(758, 320);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
