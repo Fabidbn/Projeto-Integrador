@@ -241,7 +241,48 @@ namespace Projeto_Integrador
             return dependentes;
         }
 
+
         // EXCLUIR O DEPENDENTE 
+        // public void ExcluirDependente(DataGridView dataGridView1)
+        // {
+        //     if (dataGridView1.SelectedRows.Count > 0)
+        //     {
+        //         int rowIndex = dataGridView1.SelectedRows[0].Index;
+        //         int idDependente = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["codigoColumn"].Value);
+        //
+        //         string sql = "SELECT * FROM Dependente WHERE codigo = @Codigo";
+        //         SqlCommand comando = new SqlCommand(sql, conn);
+        //         comando.Parameters.AddWithValue("@Codigo", idDependente);
+        //
+        //         SqlDataReader reader = comando.ExecuteReader();
+        //         if (reader.Read())
+        //         {
+        //             string nome = reader.GetString(reader.GetOrdinal("nome"));
+        //
+        //             string mensagem = $"Tem certeza que deseja excluir o dependente {nome}?";
+        //             DialogResult resultado = MessageBox.Show(mensagem, "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //             if (resultado == DialogResult.Yes)
+        //             {
+        //                 sql = "DELETE FROM Dependente WHERE codigo = @Codigo";
+        //                 comando = new SqlCommand(sql, conn);
+        //                 comando.Parameters.AddWithValue("@Codigo", idDependente);
+        //                 comando.ExecuteNonQuery();
+        //
+        //                 // Remove a linha da lista dependentes usando o FirstOrDefault
+        //                 Dependente dependenteRemovido = dependentes.FirstOrDefault(d => d.codigo == idDependente);
+        //                 if (dependenteRemovido != null)
+        //                 {
+        //                     dependentes.Remove(dependenteRemovido);
+        //
+        //                     // Atualiza o DataGridView após a remoção da linha
+        //                     dataGridView1.DataSource = null;
+        //                     dataGridView1.DataSource = dependentes;
+        //                 }
+        //             }
+        //         }
+        //         reader.Close();
+        //     }
+        // }
         public void ExcluirDependente(DataGridView dataGridView1, BindingList<Dependente> dependentes)
         {
             if (dataGridView1.SelectedRows.Count > 0)

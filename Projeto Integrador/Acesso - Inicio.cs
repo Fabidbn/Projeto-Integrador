@@ -27,7 +27,8 @@ namespace Projeto_Integrador
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormEventosTodos todosEventos = new FormEventosTodos();
-            todosEventos.ShowDialog();
+            todosEventos.Show();
+            this.Close();
         }
 
         private void Acesso___Inicio_Load(object sender, EventArgs e)
@@ -39,21 +40,22 @@ namespace Projeto_Integrador
         {
             Login login = new Login();
             login.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void verDependentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDepVerTodos verTodos = new FormDepVerTodos();
+            FormDepVerTodos verTodos = new FormDepVerTodos(codigoTitular);
             verTodos.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDepNovo depNovo = new FormDepNovo(codigoTitular);
             depNovo.Show();
-            this.Hide();
+            this.Close();
+
         }
 
         private void Acesso___Inicio_Load_1(object sender, EventArgs e)
@@ -76,9 +78,9 @@ namespace Projeto_Integrador
                 eventosToolStripMenuItem.Enabled = true;
                 minhasFaturasToolStripMenuItem.Enabled = false;
                 cadastrarDependenteToolStripMenuItem.Enabled = false;
-                exameToolStripMenuItem.Enabled = true;
+                exameToolStripMenuItem.Enabled = false;
                 sairToolStripMenuItem.Enabled = true;
-            }            
+            }
         }
 
         private void minhasFaturasToolStripMenuItem_Click(object sender, EventArgs e)
