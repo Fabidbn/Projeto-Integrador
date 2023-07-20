@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -188,7 +189,6 @@ namespace Projeto_Integrador
             }
         }
 
-
         // VERIFICAR A SENHA DO TITULAR
         public bool VerificarSenhaTitular(int codigoTitular, string senhaTitular)
         {
@@ -210,5 +210,118 @@ namespace Projeto_Integrador
                 return false;
             }
         }
+
+        // PASSAR AS INFORMAÇÕES PRO GRID
+        public List<Dependente> ConsultaDependente(int codigoTitular)
+        {
+            string sql = @"SELECT codigo, nome, cpf, email FROM Dependente WHERE codigoTitular = @CodigoTitular";
+            SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+            List<Dependente> dependentes = new List<Dependente>();
+
+            using (var reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var codigoDb = reader.GetInt32(reader.GetOrdinal("codigo"));
+                    var nomeDb = reader.GetString(reader.GetOrdinal("nome"));
+                    var cpfDb = reader.GetString(reader.GetOrdinal("cpf"));
+                    var emailDb = reader.GetString(reader.GetOrdinal("email"));
+
+                    dependentes.Add(new Dependente()
+                    {
+                        codigo = codigoDb,
+                        nome = nomeDb,
+                        cpf = cpfDb,
+                        email = emailDb
+                    });
+                }
+            }
+
+            return dependentes;
+        }
+
+
+        // EXCLUIR O DEPENDENTE 
+        // public void ExcluirDependente(DataGridView dataGridView1)
+        // {
+        //     if (dataGridView1.SelectedRows.Count > 0)
+        //     {
+        //         int rowIndex = dataGridView1.SelectedRows[0].Index;
+        //         int idDependente = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["codigoColumn"].Value);
+        //
+        //         string sql = "SELECT * FROM Dependente WHERE codigo = @Codigo";
+        //         SqlCommand comando = new SqlCommand(sql, conn);
+        //         comando.Parameters.AddWithValue("@Codigo", idDependente);
+        //
+        //         SqlDataReader reader = comando.ExecuteReader();
+        //         if (reader.Read())
+        //         {
+        //             string nome = reader.GetString(reader.GetOrdinal("nome"));
+        //
+        //             string mensagem = $"Tem certeza que deseja excluir o dependente {nome}?";
+        //             DialogResult resultado = MessageBox.Show(mensagem, "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //             if (resultado == DialogResult.Yes)
+        //             {
+        //                 sql = "DELETE FROM Dependente WHERE codigo = @Codigo";
+        //                 comando = new SqlCommand(sql, conn);
+        //                 comando.Parameters.AddWithValue("@Codigo", idDependente);
+        //                 comando.ExecuteNonQuery();
+        //
+        //                 // Remove a linha da lista dependentes usando o FirstOrDefault
+        //                 Dependente dependenteRemovido = dependentes.FirstOrDefault(d => d.codigo == idDependente);
+        //                 if (dependenteRemovido != null)
+        //                 {
+        //                     dependentes.Remove(dependenteRemovido);
+        //
+        //                     // Atualiza o DataGridView após a remoção da linha
+        //                     dataGridView1.DataSource = null;
+        //                     dataGridView1.DataSource = dependentes;
+        //                 }
+        //             }
+        //         }
+        //         reader.Close();
+        //     }
+        // }
+        public void ExcluirDependente(DataGridView dataGridView1, BindingList<Dependente> dependentes)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int rowIndex = dataGridView1.SelectedRows[0].Index;
+                int idDependente = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["codigoColumn"].Value);
+
+                string sql = "SELECT * FROM Dependente WHERE codigo = @Codigo";
+                SqlCommand comando = new SqlCommand(sql, conn);
+                comando.Parameters.AddWithValue("@Codigo", idDependente);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    string nome = reader.GetString(reader.GetOrdinal("nome"));
+
+                    string mensagem = $"Tem certeza que deseja excluir o dependente {nome}?";
+                    DialogResult resultado = MessageBox.Show(mensagem, "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        sql = "DELETE FROM Dependente WHERE codigo = @Codigo";
+                        comando = new SqlCommand(sql, conn);
+                        comando.Parameters.AddWithValue("@Codigo", idDependente);
+                        comando.ExecuteNonQuery();
+
+                        // Remova a linha da BindingList<Dependente>
+                        Dependente dependenteRemovido = dependentes.FirstOrDefault(d => d.codigo == idDependente);
+                        if (dependenteRemovido != null)
+                        {
+                            dependentes.Remove(dependenteRemovido);
+                        }
+                    }
+                }
+                reader.Close();
+            }
+        }
+
+
     }
+
 }
+

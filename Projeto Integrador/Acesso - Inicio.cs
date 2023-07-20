@@ -39,21 +39,22 @@ namespace Projeto_Integrador
         {
             Login login = new Login();
             login.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void verDependentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormDepVerTodos verTodos = new FormDepVerTodos();
-            verTodos.Show();
-            this.Hide();
+            FormDepVerTodos verTodos = new FormDepVerTodos(codigoTitular);
+            verTodos.ShowDialog();
+            
         }
 
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDepNovo depNovo = new FormDepNovo(codigoTitular);
             depNovo.Show();
-            this.Hide();
+            this.Close();
+
         }
 
         private void Acesso___Inicio_Load_1(object sender, EventArgs e)
@@ -76,9 +77,9 @@ namespace Projeto_Integrador
                 eventosToolStripMenuItem.Enabled = true;
                 minhasFaturasToolStripMenuItem.Enabled = false;
                 cadastrarDependenteToolStripMenuItem.Enabled = false;
-                exameToolStripMenuItem.Enabled = true;
+                exameToolStripMenuItem.Enabled = false;
                 sairToolStripMenuItem.Enabled = true;
-            }            
+            }
         }
 
         private void minhasFaturasToolStripMenuItem_Click(object sender, EventArgs e)

@@ -52,7 +52,7 @@ namespace Projeto_Integrador
                 if (dependenteNovo.senhaDependente != confirmarSenha)
                 {
                     MessageBox.Show("A senha e a confirmação de senha não coincidem.");
-                    textBox6.Text = "";
+                    textBox5.Text = "";
                     return;
                 }
 
@@ -62,6 +62,7 @@ namespace Projeto_Integrador
                 {
                     MessageBox.Show("A senha do titular não foi validada. Escreva novamente");
                     textBox4.Text = "";
+                    textBox5.Text = "";
                     textBox6.Text = "";
                     return;
                 }

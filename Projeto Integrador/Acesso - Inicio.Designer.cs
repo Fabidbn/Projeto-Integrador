@@ -115,12 +115,14 @@
             novoCadastroToolStripMenuItem.Name = "novoCadastroToolStripMenuItem";
             novoCadastroToolStripMenuItem.Size = new Size(182, 22);
             novoCadastroToolStripMenuItem.Text = "Novo Cadastro ";
+            novoCadastroToolStripMenuItem.Click += novoCadastroToolStripMenuItem_Click;
             // 
             // verDependentesToolStripMenuItem
             // 
             verDependentesToolStripMenuItem.Name = "verDependentesToolStripMenuItem";
             verDependentesToolStripMenuItem.Size = new Size(182, 22);
             verDependentesToolStripMenuItem.Text = "Ver dependentes ";
+            verDependentesToolStripMenuItem.Click += verDependentesToolStripMenuItem_Click;
             // 
             // exameToolStripMenuItem
             // 
@@ -135,6 +137,7 @@
             seusExamesToolStripMenuItem.Name = "seusExamesToolStripMenuItem";
             seusExamesToolStripMenuItem.Size = new Size(180, 22);
             seusExamesToolStripMenuItem.Text = "Seus Exames";
+            seusExamesToolStripMenuItem.Click += exameToolStripMenuItem_Click;
             // 
             // sairToolStripMenuItem
             // 
