@@ -27,7 +27,8 @@ namespace Projeto_Integrador
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormEventosTodos todosEventos = new FormEventosTodos();
-            todosEventos.ShowDialog();
+            todosEventos.Show();
+            this.Close();
         }
 
         private void Acesso___Inicio_Load(object sender, EventArgs e)
@@ -45,8 +46,8 @@ namespace Projeto_Integrador
         private void verDependentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDepVerTodos verTodos = new FormDepVerTodos(codigoTitular);
-            verTodos.ShowDialog();
-            
+            verTodos.Show();
+            this.Close();
         }
 
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
