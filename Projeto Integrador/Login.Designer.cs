@@ -138,6 +138,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio_Login";
             ResumeLayout(false);
             PerformLayout();

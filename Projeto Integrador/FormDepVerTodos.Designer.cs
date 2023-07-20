@@ -89,6 +89,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Name = "FormDepVerTodos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDepVerTodos";
             Load += FormDepVerTodos_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

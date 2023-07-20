@@ -188,6 +188,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "FormDepNovo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormDepNovo";
             ResumeLayout(false);
             PerformLayout();

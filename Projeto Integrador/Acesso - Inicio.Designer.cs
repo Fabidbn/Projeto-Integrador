@@ -66,14 +66,14 @@
             // todosToolStripMenuItem
             // 
             todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            todosToolStripMenuItem.Size = new Size(180, 22);
+            todosToolStripMenuItem.Size = new Size(153, 22);
             todosToolStripMenuItem.Text = "Todos";
             todosToolStripMenuItem.Click += todosToolStripMenuItem_Click;
             // 
             // confirmadosToolStripMenuItem
             // 
             confirmadosToolStripMenuItem.Name = "confirmadosToolStripMenuItem";
-            confirmadosToolStripMenuItem.Size = new Size(180, 22);
+            confirmadosToolStripMenuItem.Size = new Size(153, 22);
             confirmadosToolStripMenuItem.Text = "Confirmados";
             // 
             // minhasFaturasToolStripMenuItem
@@ -87,19 +87,19 @@
             // emAbertoToolStripMenuItem
             // 
             emAbertoToolStripMenuItem.Name = "emAbertoToolStripMenuItem";
-            emAbertoToolStripMenuItem.Size = new Size(180, 22);
+            emAbertoToolStripMenuItem.Size = new Size(140, 22);
             emAbertoToolStripMenuItem.Text = "Ver todas ";
             // 
             // pagasToolStripMenuItem
             // 
             pagasToolStripMenuItem.Name = "pagasToolStripMenuItem";
-            pagasToolStripMenuItem.Size = new Size(180, 22);
+            pagasToolStripMenuItem.Size = new Size(140, 22);
             pagasToolStripMenuItem.Text = "Pagas";
             // 
             // emAbertoToolStripMenuItem1
             // 
             emAbertoToolStripMenuItem1.Name = "emAbertoToolStripMenuItem1";
-            emAbertoToolStripMenuItem1.Size = new Size(180, 22);
+            emAbertoToolStripMenuItem1.Size = new Size(140, 22);
             emAbertoToolStripMenuItem1.Text = "Pendentes";
             // 
             // cadastrarDependenteToolStripMenuItem
@@ -135,7 +135,7 @@
             // seusExamesToolStripMenuItem
             // 
             seusExamesToolStripMenuItem.Name = "seusExamesToolStripMenuItem";
-            seusExamesToolStripMenuItem.Size = new Size(180, 22);
+            seusExamesToolStripMenuItem.Size = new Size(154, 22);
             seusExamesToolStripMenuItem.Text = "Seus Exames";
             seusExamesToolStripMenuItem.Click += exameToolStripMenuItem_Click;
             // 
@@ -154,6 +154,7 @@
             ClientSize = new Size(739, 566);
             Controls.Add(menuStrip1);
             Name = "Acesso___Inicio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Acesso___Inicio";
             Load += Acesso___Inicio_Load_1;
             menuStrip1.ResumeLayout(false);

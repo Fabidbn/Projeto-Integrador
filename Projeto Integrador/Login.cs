@@ -60,23 +60,23 @@ namespace Projeto_Integrador
             }
         }
 
-            private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            {
-                Cadastro cadastro = new Cadastro();
-                cadastro.Show();
-            }
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cadastro cadastro = new Cadastro();
+            cadastro.Show();
+        }
 
-            private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            {
-                FormNossosPlanos planos = new FormNossosPlanos();
-                planos.Show();
-            }
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormNossosPlanos planos = new FormNossosPlanos();
+            planos.Show();
+        }
 
-            private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            {
-                FormRedefinirSenha novaSenha = new FormRedefinirSenha();
-                novaSenha.Show();
-            }
-        
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormRedefinirSenha novaSenha = new FormRedefinirSenha();
+            novaSenha.Show();
+        }
+
     }
 }

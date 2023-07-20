@@ -28,7 +28,7 @@ namespace Projeto_Integrador
         {
             FormEventosTodos todosEventos = new FormEventosTodos();
             todosEventos.Show();
-            
+
         }
 
         private void Acesso___Inicio_Load(object sender, EventArgs e)
@@ -47,14 +47,14 @@ namespace Projeto_Integrador
         {
             FormDepVerTodos verTodos = new FormDepVerTodos(codigoTitular);
             verTodos.Show();
-            
+
         }
 
         private void novoCadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDepNovo depNovo = new FormDepNovo(codigoTitular);
             depNovo.Show();
-            
+
 
         }
 

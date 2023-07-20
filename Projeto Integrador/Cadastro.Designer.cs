@@ -170,6 +170,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Cadastro";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro Novo Socio";
             ResumeLayout(false);
             PerformLayout();

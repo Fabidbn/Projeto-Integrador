@@ -61,6 +61,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Exame";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Exame";
             ResumeLayout(false);
             PerformLayout();

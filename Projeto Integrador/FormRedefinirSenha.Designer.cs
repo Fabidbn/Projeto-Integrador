@@ -148,6 +148,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "FormRedefinirSenha";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormRedefinirSenha";
             ResumeLayout(false);
             PerformLayout();

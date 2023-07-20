@@ -154,6 +154,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "FormNossosPlanos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Nossos Planos";
             ResumeLayout(false);
             PerformLayout();
