@@ -68,7 +68,7 @@ namespace Projeto_Integrador
         {
             if (tipoUsuario == "Titular")
             {
-                // Configurar a visibilidade ou habilitação dos campos específicos para o titular
+                
                 eventosToolStripMenuItem.Enabled = true;
                 minhasFaturasToolStripMenuItem.Enabled = true;
                 cadastrarDependenteToolStripMenuItem.Enabled = true;
