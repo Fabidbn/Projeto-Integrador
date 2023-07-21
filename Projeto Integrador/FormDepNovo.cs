@@ -70,10 +70,15 @@ namespace Projeto_Integrador
                     return;
                 }
 
-                
-                dependenteNovo.codigoTitular = codigoTitular;
 
-               
+                int quantidadeDependentes = db.ConsultarQuantidadeDependentes(codigoTitular);
+                if (quantidadeDependentes >= 5)
+                {
+                    MessageBox.Show("O titular já possui o número máximo de dependentes (5).");
+                    return;
+                }
+
+                dependenteNovo.codigoTitular = codigoTitular;               
                 bool inserido = db.InserirDependente(dependenteNovo);
                 if (inserido)
                 {

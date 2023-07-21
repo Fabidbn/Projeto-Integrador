@@ -581,6 +581,17 @@ namespace Projeto_Integrador
             }
             return faturas;
         }
+
+        // VERIFICAR QUANTIDADE DE DEPENDENTES
+        public int ConsultarQuantidadeDependentes(int codigoTitular)
+        {
+            string sql = "SELECT COUNT(*) FROM Dependente WHERE codigoTitular = @CodigoTitular";
+            SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+
+            int quantidadeDependentes = Convert.ToInt32(comando.ExecuteScalar());
+            return quantidadeDependentes;
+        }
     }
 }
 
