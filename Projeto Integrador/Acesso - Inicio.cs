@@ -107,5 +107,12 @@ namespace Projeto_Integrador
         {
 
         }
+
+        private void emAbertoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormFaturasTodas verTodos = new FormFaturasTodas(codigoTitular);
+            verTodos.Show();
+
+        }
     }
 }

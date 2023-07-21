@@ -241,6 +241,45 @@ namespace Projeto_Integrador
             return dependentes;
         }
 
+        //GRID CONSULTAR FATURAS 
+        public List<Fatura> ConsultaFatura(int codigoTitular)
+        {
+            string sql = @"SELECT codigo, codigoTitular, mesReferente, dataVencimento, valor, statusPagamento FROM Fatura WHERE codigoTitular = @CodigoTitular";
+            SqlCommand comando = new SqlCommand( sql, conn);
+            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular );
+            List<Fatura> faturas = new List<Fatura>();
+
+            using (var reader = comando.ExecuteReader())
+            { 
+                while (reader.Read())
+                {
+                    var mesReferenteDb = reader.GetDateTime(reader.GetOrdinal("mesReferente"));
+                    var dataVencimentoDb = reader.GetDateTime(reader.GetOrdinal("dataVencimento"));
+                    var valorDb = reader.GetDecimal(reader.GetOrdinal("valor"));
+                    var statusPagamentoDb = reader.GetBoolean(reader.GetOrdinal("statusPagamento"));
+                    var codigoDb = reader.GetInt32(reader.GetOrdinal("Codigo"));
+                    var codigoTitularDb = reader.GetInt32(reader.GetOrdinal("codigoTitular"));
+
+                    faturas.Add(new Fatura()
+                    {
+                        codigo = codigoDb,
+                        codigoTitular = codigoTitularDb,
+                        mesReferente = mesReferenteDb,
+                        dataVencimento = dataVencimentoDb,
+                        valor = valorDb,
+                        statusPagamento = statusPagamentoDb,
+
+
+                        
+                    });
+                }
+
+             }
+            return faturas;
+
+        }
+
+
 
         // EXCLUIR O DEPENDENTE 
         public void ExcluirDependente(DataGridView dataGridView1, BindingList<Dependente> dependentes)

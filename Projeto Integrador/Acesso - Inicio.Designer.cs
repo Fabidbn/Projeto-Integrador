@@ -87,19 +87,20 @@
             // emAbertoToolStripMenuItem
             // 
             emAbertoToolStripMenuItem.Name = "emAbertoToolStripMenuItem";
-            emAbertoToolStripMenuItem.Size = new Size(140, 22);
+            emAbertoToolStripMenuItem.Size = new Size(180, 22);
             emAbertoToolStripMenuItem.Text = "Ver todas ";
+            emAbertoToolStripMenuItem.Click += emAbertoToolStripMenuItem_Click;
             // 
             // pagasToolStripMenuItem
             // 
             pagasToolStripMenuItem.Name = "pagasToolStripMenuItem";
-            pagasToolStripMenuItem.Size = new Size(140, 22);
+            pagasToolStripMenuItem.Size = new Size(180, 22);
             pagasToolStripMenuItem.Text = "Pagas";
             // 
             // emAbertoToolStripMenuItem1
             // 
             emAbertoToolStripMenuItem1.Name = "emAbertoToolStripMenuItem1";
-            emAbertoToolStripMenuItem1.Size = new Size(140, 22);
+            emAbertoToolStripMenuItem1.Size = new Size(180, 22);
             emAbertoToolStripMenuItem1.Text = "Pendentes";
             // 
             // cadastrarDependenteToolStripMenuItem
