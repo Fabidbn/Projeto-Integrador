@@ -333,8 +333,7 @@ namespace Projeto_Integrador
             }
             return faturas;
         }
-    
-        
+            
         // EXCLUIR O DEPENDENTE 
         public void ExcluirDependente(DataGridView dataGridView1, BindingList<Dependente> dependentes)
         {
@@ -479,6 +478,40 @@ namespace Projeto_Integrador
             {
                 MessageBox.Show("Ocorreu um erro ao remover a presença: " + ex.Message);
             }
+        }
+
+        // CONSULTA PRO GRID DOS EXAMES
+        public List<Exames> ConsultaExames(int codigoTitular)
+        {
+            string sql = @"SELECT codigo, codigoTitular, tipo, descricao, dataRealizacao, status FROM Exame WHERE codigoTitular = @CodigoTitular";
+            SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+
+            List<Exames> exames = new List<Exames>();
+
+            using (var reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var codigoDb = reader.GetInt32(reader.GetOrdinal("codigo"));
+                    var codigoTitularDb = reader.GetInt32(reader.GetOrdinal("codigoTitular"));
+                    var tipoDb = reader.GetString(reader.GetOrdinal("tipo"));
+                    var descricaoDb = reader.GetString(reader.GetOrdinal("descricao"));
+                    var dataRealizacaoDb = reader.GetDateTime(reader.GetOrdinal("dataRealizacao"));
+                    var statusDb = reader.GetBoolean(reader.GetOrdinal("status"));
+
+                    exames.Add(new Exames()
+                    {
+                        codigo = codigoDb,
+                        codigoTitular = codigoTitularDb,
+                        tipo = tipoDb,
+                        descricao = descricaoDb,
+                        dataRealizacao = dataRealizacaoDb,
+                        status = statusDb,
+                    });
+                }
+            }
+            return exames;
         }
     }
 }

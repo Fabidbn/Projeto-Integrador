@@ -30,6 +30,8 @@
         {
             label1 = new Label();
             label2 = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -49,20 +51,37 @@
             label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(49, 56);
             label2.Name = "label2";
-            label2.Size = new Size(483, 17);
+            label2.Size = new Size(416, 17);
             label2.TabIndex = 1;
-            label2.Text = "Verifique a data de validade de seus exames, evitando assim transtornos futuros!";
+            label2.Text = "Verifique seus exames pendentes, evitando assim transtornos futuros!";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 107);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(674, 224);
+            dataGridView1.TabIndex = 2;
+            dataGridView1.CellBeginEdit += dataGridView1_CellBeginEdit;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
             // Exame
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(698, 343);
+            Controls.Add(dataGridView1);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Exame";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Exame";
+            Load += Exame_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -71,5 +90,6 @@
 
         private Label label1;
         private Label label2;
+        private DataGridView dataGridView1;
     }
 }

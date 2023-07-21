@@ -42,6 +42,7 @@
             exameToolStripMenuItem = new ToolStripMenuItem();
             seusExamesToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            exameToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -88,20 +89,20 @@
             // emAbertoToolStripMenuItem
             // 
             emAbertoToolStripMenuItem.Name = "emAbertoToolStripMenuItem";
-            emAbertoToolStripMenuItem.Size = new Size(180, 22);
+            emAbertoToolStripMenuItem.Size = new Size(140, 22);
             emAbertoToolStripMenuItem.Text = "Ver todas ";
             emAbertoToolStripMenuItem.Click += emAbertoToolStripMenuItem_Click;
             // 
             // pagasToolStripMenuItem
             // 
             pagasToolStripMenuItem.Name = "pagasToolStripMenuItem";
-            pagasToolStripMenuItem.Size = new Size(180, 22);
+            pagasToolStripMenuItem.Size = new Size(140, 22);
             pagasToolStripMenuItem.Text = "Pagas";
             // 
             // emAbertoToolStripMenuItem1
             // 
             emAbertoToolStripMenuItem1.Name = "emAbertoToolStripMenuItem1";
-            emAbertoToolStripMenuItem1.Size = new Size(180, 22);
+            emAbertoToolStripMenuItem1.Size = new Size(140, 22);
             emAbertoToolStripMenuItem1.Text = "Pendentes";
             // 
             // cadastrarDependenteToolStripMenuItem
@@ -128,16 +129,15 @@
             // 
             // exameToolStripMenuItem
             // 
-            exameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seusExamesToolStripMenuItem });
+            exameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { seusExamesToolStripMenuItem, exameToolStripMenuItem1 });
             exameToolStripMenuItem.Name = "exameToolStripMenuItem";
             exameToolStripMenuItem.Size = new Size(60, 21);
             exameToolStripMenuItem.Text = "Exame";
-            exameToolStripMenuItem.Click += exameToolStripMenuItem_Click;
             // 
             // seusExamesToolStripMenuItem
             // 
             seusExamesToolStripMenuItem.Name = "seusExamesToolStripMenuItem";
-            seusExamesToolStripMenuItem.Size = new Size(154, 22);
+            seusExamesToolStripMenuItem.Size = new Size(180, 22);
             seusExamesToolStripMenuItem.Text = "Seus Exames";
             seusExamesToolStripMenuItem.Click += exameToolStripMenuItem_Click;
             // 
@@ -147,6 +147,12 @@
             sairToolStripMenuItem.Size = new Size(42, 21);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click_1;
+            // 
+            // exameToolStripMenuItem1
+            // 
+            exameToolStripMenuItem1.Name = "exameToolStripMenuItem1";
+            exameToolStripMenuItem1.Size = new Size(180, 22);
+            exameToolStripMenuItem1.Text = "Exame";
             // 
             // Acesso___Inicio
             // 
@@ -186,5 +192,6 @@
         private ToolStripMenuItem sairToolStripMenuItem;
         private ToolStripMenuItem exameToolStripMenuItem;
         private ToolStripMenuItem seusExamesToolStripMenuItem;
+        private ToolStripMenuItem exameToolStripMenuItem1;
     }
 }

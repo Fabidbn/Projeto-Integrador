@@ -102,7 +102,8 @@ namespace Projeto_Integrador
 
         private void exameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Exame exame = new Exame(codigoTitular);
+            exame.Show();
         }
 
         private void sairToolStripMenuItem_Click_1(object sender, EventArgs e)
