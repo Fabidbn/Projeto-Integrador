@@ -165,6 +165,11 @@
             PerformLayout();
         }
 
+        private void ConfirmadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private MenuStrip menuStrip1;

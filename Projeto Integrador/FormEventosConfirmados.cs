@@ -12,9 +12,13 @@ namespace Projeto_Integrador
 {
     public partial class FormEventosConfirmados : Form
     {
-        public FormEventosConfirmados()
+        private int codigoTitular;
+        private int codigoDependente;
+        public FormEventosConfirmados(int codigoTitular, int codigoDependente)
         {
             InitializeComponent();
+            this.codigoTitular = codigoTitular;
+            this.codigoDependente = codigoDependente;
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

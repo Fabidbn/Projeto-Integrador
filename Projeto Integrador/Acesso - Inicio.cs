@@ -116,5 +116,10 @@ namespace Projeto_Integrador
             verTodos.Show();
 
         }
+        private void confirmadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEventosConfirmados eventosConfirmados = new FormEventosConfirmados(codigoTitular, codigoDependente);
+            eventosConfirmados.Show();
+        }
     }
 }
