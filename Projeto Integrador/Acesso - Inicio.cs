@@ -107,7 +107,9 @@ namespace Projeto_Integrador
 
         private void sairToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
 
         private void emAbertoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,7 +120,7 @@ namespace Projeto_Integrador
         }
         private void confirmadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEventosConfirmados eventosConfirmados = new FormEventosConfirmados(codigoTitular, codigoDependente);
+            FormEventosConfirmados eventosConfirmados = new FormEventosConfirmados(codigoTitular, codigoDependente, tipoUsuario);
             eventosConfirmados.Show();
         }
     }

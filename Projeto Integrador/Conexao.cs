@@ -420,6 +420,66 @@ namespace Projeto_Integrador
                 MessageBox.Show("Selecione um evento para confirmar presença.");
             }
         }
+
+        // CONSULTA PRO GRID DOS EVENTOS CONFIRMADOS
+        public List<EventoConfirmado> ConsultaEventosConfirmados(int codigoTitular, int codigoDependente)
+        {
+            string sql = @"
+        SELECT I.codigo, E.nome, E.descricao, E.local, E.dataEvento, E.horaEvento
+        FROM Evento E
+        INNER JOIN Inscricao I ON E.codigo = I.codigoEvento
+        WHERE (I.codigoTitular = @CodigoTitular OR I.codigoDependente = @CodigoDependente)";
+
+            SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+            comando.Parameters.AddWithValue("@CodigoDependente", codigoDependente);
+
+            List<EventoConfirmado> eventosConfirmados = new List<EventoConfirmado>();
+
+            using (var reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var codigoDb = reader.GetInt32(reader.GetOrdinal("codigo"));
+                    var nomeDb = reader.GetString(reader.GetOrdinal("nome"));
+                    var descricaoDb = reader.GetString(reader.GetOrdinal("descricao"));
+                    var localDb = reader.GetString(reader.GetOrdinal("local"));
+                    var dataEventoDb = reader.GetDateTime(reader.GetOrdinal("dataEvento"));
+                    var horaEventoDb = reader.GetTimeSpan(reader.GetOrdinal("horaEvento"));
+
+                    eventosConfirmados.Add(new EventoConfirmado()
+                    {
+                        codigo = codigoDb,
+                        nome = nomeDb,
+                        descricao = descricaoDb,
+                        local = localDb,
+                        dataEvento = dataEventoDb,
+                        horaEvento = horaEventoDb
+                    });
+                }
+            }
+
+            return eventosConfirmados;
+        }
+
+        // REMOVER PRESENÇA
+        public void RemoverPresencaEvento(int codigoPessoa, int codigoEvento)
+        {
+            try
+            {
+                string sql = "DELETE FROM Inscricao WHERE (codigoTitular = @CodigoPessoa OR codigoDependente = @CodigoPessoa) AND codigoEvento = @CodigoEvento";
+                SqlCommand comando = new SqlCommand(sql, conn);
+                comando.Parameters.AddWithValue("@CodigoPessoa", codigoPessoa);
+                comando.Parameters.AddWithValue("@CodigoEvento", codigoEvento);
+
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Presença removida com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao remover a presença: " + ex.Message);
+            }
+        }
     }
 }
 
