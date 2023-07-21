@@ -43,7 +43,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(503, 141);
+            label1.Location = new Point(505, 138);
             label1.Name = "label1";
             label1.Size = new Size(28, 15);
             label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Location = new Point(503, 212);
+            label2.Location = new Point(505, 211);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 1;
@@ -64,7 +64,7 @@
             linkLabel1.AutoSize = true;
             linkLabel1.BackColor = Color.Transparent;
             linkLabel1.LinkColor = Color.Black;
-            linkLabel1.Location = new Point(546, 362);
+            linkLabel1.Location = new Point(551, 331);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(119, 15);
             linkLabel1.TabIndex = 2;
@@ -100,7 +100,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(503, 159);
+            textBox1.Location = new Point(505, 156);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(224, 23);
             textBox1.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(503, 230);
+            textBox2.Location = new Point(505, 229);
             textBox2.Name = "textBox2";
             textBox2.PasswordChar = '*';
             textBox2.Size = new Size(224, 23);
@@ -116,7 +116,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(561, 294);
+            button1.Location = new Point(562, 280);
             button1.Name = "button1";
             button1.Size = new Size(94, 28);
             button1.TabIndex = 7;
@@ -129,7 +129,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(800, 500);
+            ClientSize = new Size(797, 469);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);

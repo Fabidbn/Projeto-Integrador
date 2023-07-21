@@ -63,25 +63,25 @@ namespace Projeto_Integrador
                 return (null, -1, -1);
             }
 
-            
+
             string tipoUsuario = db.BuscarTipoUsuario(cpf, senha);
 
             if (!string.IsNullOrEmpty(tipoUsuario))
             {
-                
+
                 int codigoTitular = db.ObterCodigoTitular(cpf);
 
                 if (codigoTitular != -1)
                 {
-                    
+
                     int codigoDependente = tipoUsuario == "Dependente" ? db.ObterCodigoDependente(cpf) : -1;
 
-                    
+
                     return (tipoUsuario, codigoTitular, codigoDependente);
                 }
                 else
                 {
-                    
+
                     MessageBox.Show("Erro ao obter o código do titular. Por favor, tente novamente.");
                 }
             }
@@ -96,11 +96,11 @@ namespace Projeto_Integrador
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string cpf = textBox1.Text;
-            cpf = Regex.Replace(cpf, @"[^0-9]", ""); 
+            cpf = Regex.Replace(cpf, @"[^0-9]", "");
 
             if (cpf.Length > 11)
             {
-                
+
                 cpf = cpf.Substring(0, 11);
             }
 
@@ -110,15 +110,20 @@ namespace Projeto_Integrador
             }
             if (cpf.Length > 7)
             {
-                cpf = cpf.Insert(7, "."); 
+                cpf = cpf.Insert(7, ".");
             }
             if (cpf.Length > 11)
             {
-                cpf = cpf.Insert(11, "-"); 
+                cpf = cpf.Insert(11, "-");
             }
 
             textBox1.Text = cpf;
             textBox1.SelectionStart = cpf.Length;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
