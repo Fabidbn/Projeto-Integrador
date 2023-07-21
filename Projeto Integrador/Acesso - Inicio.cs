@@ -124,5 +124,17 @@ namespace Projeto_Integrador
             FormEventosConfirmados eventosConfirmados = new FormEventosConfirmados(codigoTitular, codigoDependente, tipoUsuario);
             eventosConfirmados.Show();
         }
+
+        private void pagasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormFaturasPagas faturasPagas = new FormFaturasPagas(codigoTitular);
+            faturasPagas.Show();
+        }
+
+        private void emAbertoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormFaturasPendentes faturasPendentes = new FormFaturasPendentes(codigoTitular);
+            faturasPendentes.Show();
+        }
     }
 }

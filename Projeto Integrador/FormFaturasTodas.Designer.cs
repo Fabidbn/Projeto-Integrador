@@ -37,7 +37,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(46, 52);
+            label1.Location = new Point(12, 72);
             label1.Name = "label1";
             label1.Size = new Size(197, 20);
             label1.TabIndex = 1;
@@ -45,11 +45,14 @@
             // 
             // dataGridViewFatura
             // 
+            dataGridViewFatura.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewFatura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewFatura.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewFatura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewFatura.Location = new Point(46, 101);
+            dataGridViewFatura.Location = new Point(12, 95);
             dataGridViewFatura.Name = "dataGridViewFatura";
             dataGridViewFatura.RowTemplate.Height = 25;
-            dataGridViewFatura.Size = new Size(643, 237);
+            dataGridViewFatura.Size = new Size(759, 237);
             dataGridViewFatura.TabIndex = 2;
             dataGridViewFatura.CellBeginEdit += dataGridViewFatura_CellBeginEdit;
             dataGridViewFatura.CellContentClick += dataGridView1_CellContentClick_2;
@@ -59,7 +62,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(783, 344);
             Controls.Add(dataGridViewFatura);
             Controls.Add(label1);
             Name = "FormFaturasTodas";

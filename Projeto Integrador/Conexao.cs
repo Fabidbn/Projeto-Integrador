@@ -513,6 +513,74 @@ namespace Projeto_Integrador
             }
             return exames;
         }
+
+        // CONSULTA FATURA PAGAS
+        public List<Fatura> ConsultaFaturaPaga(int codigoTitular)
+        {
+            string sql = @"SELECT codigo, codigoTitular, mesReferente, dataVencimento, valor, statusPagamento FROM Fatura WHERE codigoTitular = @CodigoTitular AND statusPagamento = 1";
+            SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+
+            List<Fatura> faturas = new List<Fatura>();
+
+            using (var reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var codigoDb = reader.GetInt32(reader.GetOrdinal("codigo"));
+                    var codigoTitularDb = reader.GetInt32(reader.GetOrdinal("codigoTitular"));
+                    var mesReferenteDb = reader.GetDateTime(reader.GetOrdinal("mesReferente"));
+                    var dataVencimentolDb = reader.GetDateTime(reader.GetOrdinal("dataVencimento"));
+                    var valorDb = reader.GetDecimal(reader.GetOrdinal("valor"));
+                    var statustPagamentoDb = reader.GetBoolean(reader.GetOrdinal("statusPagamento"));
+
+                    faturas.Add(new Fatura()
+                    {
+                        codigo = codigoDb,
+                        codigoTitular = codigoTitularDb,
+                        mesReferente = mesReferenteDb,
+                        dataVencimento = dataVencimentolDb,
+                        valor = valorDb,
+                        statusPagamento = statustPagamentoDb
+                    });
+                }
+            }
+            return faturas;
+        }
+
+        // CONSULTA FATURA PENDENTES
+        public List<Fatura> ConsultaFaturaPendente(int codigoTitular)
+        {
+            string sql = @"SELECT codigo, codigoTitular, mesReferente, dataVencimento, valor, statusPagamento FROM Fatura WHERE codigoTitular = @CodigoTitular AND statusPagamento = 0";
+            SqlCommand comando = new SqlCommand(sql, conn);
+            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+
+            List<Fatura> faturas = new List<Fatura>();
+
+            using (var reader = comando.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    var codigoDb = reader.GetInt32(reader.GetOrdinal("codigo"));
+                    var codigoTitularDb = reader.GetInt32(reader.GetOrdinal("codigoTitular"));
+                    var mesReferenteDb = reader.GetDateTime(reader.GetOrdinal("mesReferente"));
+                    var dataVencimentolDb = reader.GetDateTime(reader.GetOrdinal("dataVencimento"));
+                    var valorDb = reader.GetDecimal(reader.GetOrdinal("valor"));
+                    var statustPagamentoDb = reader.GetBoolean(reader.GetOrdinal("statusPagamento"));
+
+                    faturas.Add(new Fatura()
+                    {
+                        codigo = codigoDb,
+                        codigoTitular = codigoTitularDb,
+                        mesReferente = mesReferenteDb,
+                        dataVencimento = dataVencimentolDb,
+                        valor = valorDb,
+                        statusPagamento = statustPagamentoDb
+                    });
+                }
+            }
+            return faturas;
+        }
     }
 }
 

@@ -75,6 +75,7 @@ namespace Projeto_Integrador
 
         private void dataGridViewFatura_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
+            e.Cancel = true;
         }
 
         private void dataGridViewFatura_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
