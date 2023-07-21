@@ -34,7 +34,7 @@ namespace Projeto_Integrador
 
             dataGridView1.Columns.Add("codigoColumn", "Código");
             dataGridView1.Columns["codigoColumn"].DataPropertyName = "codigo";
-            dataGridView1.Columns["codigoColumn"].Visible = false; // Essa linha oculta a coluna visualmente.
+            dataGridView1.Columns["codigoColumn"].Visible = false; 
 
             dataGridView1.Columns.Add("nomeColumn", "Nome");
             dataGridView1.Columns["nomeColumn"].DataPropertyName = "nome";

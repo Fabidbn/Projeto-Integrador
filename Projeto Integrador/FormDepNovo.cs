@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -18,6 +19,8 @@ namespace Projeto_Integrador
         {
             InitializeComponent();
             this.codigoTitular = codigoTitular;
+
+            textBox2.TextChanged += textBox2_TextChanged;
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -41,14 +44,14 @@ namespace Projeto_Integrador
                 string confirmarSenha = textBox5.Text;
                 string senhaTitular = textBox6.Text;
 
-                // Ver se tem campos não preenchidos
+                
                 if (string.IsNullOrEmpty(dependenteNovo.nome) || string.IsNullOrEmpty(dependenteNovo.cpf) || string.IsNullOrEmpty(dependenteNovo.email) || string.IsNullOrEmpty(dependenteNovo.senhaDependente) || string.IsNullOrEmpty(confirmarSenha) || string.IsNullOrEmpty(senhaTitular))
                 {
                     MessageBox.Show("Por favor, preencha todos os campos.");
                     return;
                 }
 
-                // Validar se a senha e a confirmação de senha são iguais
+                
                 if (dependenteNovo.senhaDependente != confirmarSenha)
                 {
                     MessageBox.Show("A senha e a confirmação de senha não coincidem.");
@@ -56,7 +59,7 @@ namespace Projeto_Integrador
                     return;
                 }
 
-                // Validar a senha do titular
+               
                 bool senhaTitularValidada = db.VerificarSenhaTitular(codigoTitular, senhaTitular);
                 if (!senhaTitularValidada)
                 {
@@ -67,10 +70,10 @@ namespace Projeto_Integrador
                     return;
                 }
 
-                // Atribuir o código do titular ao dependente
+                
                 dependenteNovo.codigoTitular = codigoTitular;
 
-                // Inserir dependente no banco de dados
+               
                 bool inserido = db.InserirDependente(dependenteNovo);
                 if (inserido)
                 {
@@ -91,6 +94,34 @@ namespace Projeto_Integrador
             textBox4.Text = string.Empty;
             textBox5.Text = string.Empty;
             textBox6.Text = string.Empty;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            string cpf = textBox2.Text;
+            cpf = Regex.Replace(cpf, @"[^0-9]", ""); 
+
+            if (cpf.Length > 11)
+            {
+                
+                cpf = cpf.Substring(0, 11);
+            }
+
+            if (cpf.Length > 3)
+            {
+                cpf = cpf.Insert(3, "."); 
+            }
+            if (cpf.Length > 7)
+            {
+                cpf = cpf.Insert(7, "."); 
+            }
+            if (cpf.Length > 11)
+            {
+                cpf = cpf.Insert(11, "-"); 
+            }
+
+            textBox2.Text = cpf;
+            textBox2.SelectionStart = cpf.Length;
         }
     }
 }

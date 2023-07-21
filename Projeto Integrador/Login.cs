@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Projeto_Integrador
 {
@@ -15,6 +17,7 @@ namespace Projeto_Integrador
         public Login()
         {
             InitializeComponent();
+            textBox1.TextChanged += textBox1_TextChanged;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,23 +35,23 @@ namespace Projeto_Integrador
             }
         }
 
-            private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            {
-                Cadastro cadastro = new Cadastro();
-                cadastro.Show();
-            }
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cadastro cadastro = new Cadastro();
+            cadastro.Show();
+        }
 
-            private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            {
-                FormNossosPlanos planos = new FormNossosPlanos();
-                planos.Show();
-            }
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormNossosPlanos planos = new FormNossosPlanos();
+            planos.Show();
+        }
 
-            private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-            {
-                FormRedefinirSenha novaSenha = new FormRedefinirSenha();
-                novaSenha.Show();
-            }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormRedefinirSenha novaSenha = new FormRedefinirSenha();
+            novaSenha.Show();
+        }
         private (string tipoUsuario, int codigoTitular, int codigoDependente) FazerLogin(string cpf, string senha)
         {
             Conexao db = new Conexao();
@@ -60,35 +63,62 @@ namespace Projeto_Integrador
                 return (null, -1, -1);
             }
 
-            // Verificar o tipo de usuário (Titular ou Dependente)
+            
             string tipoUsuario = db.BuscarTipoUsuario(cpf, senha);
 
             if (!string.IsNullOrEmpty(tipoUsuario))
             {
-                // Obter o código do titular
+                
                 int codigoTitular = db.ObterCodigoTitular(cpf);
 
                 if (codigoTitular != -1)
                 {
-                    // Obter o código do dependente apenas se o tipo de usuário for "Dependente"
+                    
                     int codigoDependente = tipoUsuario == "Dependente" ? db.ObterCodigoDependente(cpf) : -1;
 
-                    // Retornar o resultado do login com o código do dependente
+                    
                     return (tipoUsuario, codigoTitular, codigoDependente);
                 }
                 else
                 {
-                    // Exibir mensagem de erro ao obter o código do titular
+                    
                     MessageBox.Show("Erro ao obter o código do titular. Por favor, tente novamente.");
                 }
             }
             else
             {
-                // Exibir mensagem de erro de login inválido
                 MessageBox.Show("CPF e/ou senha inválidos. Por favor, tente novamente.");
             }
 
             return (null, -1, -1);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string cpf = textBox1.Text;
+            cpf = Regex.Replace(cpf, @"[^0-9]", ""); 
+
+            if (cpf.Length > 11)
+            {
+                
+                cpf = cpf.Substring(0, 11);
+            }
+
+            if (cpf.Length > 3)
+            {
+                cpf = cpf.Insert(3, ".");
+            }
+            if (cpf.Length > 7)
+            {
+                cpf = cpf.Insert(7, "."); 
+            }
+            if (cpf.Length > 11)
+            {
+                cpf = cpf.Insert(11, "-"); 
+            }
+
+            textBox1.Text = cpf;
+            textBox1.SelectionStart = cpf.Length;
         }
     }
 }

@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace Projeto_Integrador
 {
     public partial class Cadastro : Form
@@ -5,6 +7,7 @@ namespace Projeto_Integrador
         public Cadastro()
         {
             InitializeComponent();
+            textBox4.TextChanged += textBox4_TextChanged;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -41,14 +44,14 @@ namespace Projeto_Integrador
                 novoTitular.senhaTitular = textBox1.Text;
                 string confirmarSenha = textBox5.Text;
 
-                // Ver se tem campos não preenchidos
+                
                 if (string.IsNullOrEmpty(novoTitular.nome) || string.IsNullOrEmpty(novoTitular.cpf) || string.IsNullOrEmpty(novoTitular.email) || string.IsNullOrEmpty(novoTitular.senhaTitular) || string.IsNullOrEmpty(confirmarSenha))
                 {
                     MessageBox.Show("Por favor, preencha todos os campos.");
                     return;
                 }
 
-                // Validar se a senha e a confirmação de senha são iguais
+               
                 if (novoTitular.senhaTitular != confirmarSenha)
                 {
                     MessageBox.Show("A senha e a confirmação de senha não coincidem.");
@@ -76,6 +79,35 @@ namespace Projeto_Integrador
             textBox3.Text = string.Empty;
             textBox4.Text = string.Empty;
             textBox5.Text = string.Empty;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            string cpf = textBox4.Text;
+            cpf = Regex.Replace(cpf, @"[^0-9]", ""); 
+
+            if (cpf.Length > 11)
+            {
+               
+                cpf = cpf.Substring(0, 11);
+            }
+
+            if (cpf.Length > 3)
+            {
+                cpf = cpf.Insert(3, ".");
+            }
+            if (cpf.Length > 7)
+            {
+                cpf = cpf.Insert(7, "."); 
+            }
+            if (cpf.Length > 11)
+            {
+                cpf = cpf.Insert(11, "-");
+            }
+
+            textBox4.Text = cpf;
+            textBox4.SelectionStart = cpf.Length;
+
         }
     }
 }

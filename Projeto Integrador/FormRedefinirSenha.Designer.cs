@@ -44,7 +44,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(88, 42);
+            label1.Location = new Point(26, 39);
             label1.Name = "label1";
             label1.Size = new Size(199, 25);
             label1.TabIndex = 0;
@@ -54,7 +54,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(99, 78);
+            label2.Location = new Point(26, 64);
             label2.Name = "label2";
             label2.Size = new Size(297, 20);
             label2.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(265, 152);
+            label3.Location = new Point(263, 162);
             label3.Name = "label3";
             label3.Size = new Size(243, 25);
             label3.TabIndex = 2;
@@ -74,6 +74,7 @@
             // 
             textBox1.Location = new Point(194, 300);
             textBox1.Name = "textBox1";
+            textBox1.PasswordChar = '*';
             textBox1.Size = new Size(388, 23);
             textBox1.TabIndex = 3;
             // 
@@ -81,6 +82,7 @@
             // 
             textBox2.Location = new Point(194, 353);
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(388, 23);
             textBox2.TabIndex = 4;
             // 
@@ -111,9 +113,9 @@
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(194, 282);
             label5.Name = "label5";
-            label5.Size = new Size(45, 17);
+            label5.Size = new Size(89, 17);
             label5.TabIndex = 7;
-            label5.Text = "E-mail";
+            label5.Text = "Senha Antiga";
             // 
             // textBox3
             // 
@@ -121,6 +123,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(388, 23);
             textBox3.TabIndex = 8;
+            textBox3.TextChanged += textBox3_TextChanged;
             // 
             // label6
             // 
@@ -128,15 +131,15 @@
             label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(194, 335);
             label6.Name = "label6";
-            label6.Size = new Size(84, 17);
+            label6.Size = new Size(81, 17);
             label6.TabIndex = 9;
-            label6.Text = "Nova Senha:";
+            label6.Text = "Nova Senha";
             // 
             // FormRedefinirSenha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(739, 566);
+            ClientSize = new Size(768, 500);
             Controls.Add(label6);
             Controls.Add(textBox3);
             Controls.Add(label5);

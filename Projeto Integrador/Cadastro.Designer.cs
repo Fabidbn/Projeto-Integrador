@@ -44,8 +44,9 @@
             // 
             // button1
             // 
+            button1.Cursor = Cursors.Hand;
             button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(300, 441);
+            button1.Location = new Point(299, 403);
             button1.Name = "button1";
             button1.Size = new Size(135, 35);
             button1.TabIndex = 15;
@@ -64,6 +65,7 @@
             // 
             textBox1.Location = new Point(186, 282);
             textBox1.Name = "textBox1";
+            textBox1.PasswordChar = '*';
             textBox1.Size = new Size(388, 23);
             textBox1.TabIndex = 13;
             // 
@@ -100,6 +102,7 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(387, 23);
             textBox4.TabIndex = 18;
+            textBox4.TextChanged += textBox4_TextChanged;
             // 
             // label3
             // 
@@ -126,6 +129,7 @@
             // 
             textBox5.Location = new Point(187, 345);
             textBox5.Name = "textBox5";
+            textBox5.PasswordChar = '*';
             textBox5.Size = new Size(387, 23);
             textBox5.TabIndex = 21;
             textBox5.TextChanged += textBox5_TextChanged;
@@ -156,7 +160,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(739, 566);
+            ClientSize = new Size(738, 483);
             Controls.Add(label6);
             Controls.Add(textBox5);
             Controls.Add(label5);
