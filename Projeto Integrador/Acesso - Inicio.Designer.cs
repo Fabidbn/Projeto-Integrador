@@ -75,6 +75,7 @@
             confirmadosToolStripMenuItem.Name = "confirmadosToolStripMenuItem";
             confirmadosToolStripMenuItem.Size = new Size(153, 22);
             confirmadosToolStripMenuItem.Text = "Confirmados";
+            confirmadosToolStripMenuItem.Click += confirmadosToolStripMenuItem_Click;
             // 
             // minhasFaturasToolStripMenuItem
             // 

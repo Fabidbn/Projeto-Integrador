@@ -16,5 +16,37 @@ namespace Projeto_Integrador
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
+
+        private void FormEventosConfirmados_Load(object sender, EventArgs e)
+        {
+            Conexao db = new Conexao();
+            db.Conectar();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Conexao db = new Conexao();
+            db.Conectar();
+        }
     }
 }
