@@ -43,7 +43,7 @@ namespace Projeto_Integrador
 
             dataGridView1.AutoGenerateColumns = false;
 
-            // Adicione uma coluna oculta para armazenar o código do dependente, mas não a exiba visualmente.
+
             dataGridView1.Columns.Add("codigoColumn", "Código");
             dataGridView1.Columns["codigoColumn"].DataPropertyName = "codigo";
             dataGridView1.Columns["codigoColumn"].Visible = false; // Essa linha oculta a coluna visualmente.
@@ -64,6 +64,11 @@ namespace Projeto_Integrador
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

@@ -67,7 +67,6 @@ namespace Projeto_Integrador
                 SqlCommand comando = new SqlCommand(sql, conn);
                 comando.Parameters.AddWithValue("@CPF", cpf);
 
-                // Executar o comando e obter o código do titular
                 object resultado = comando.ExecuteScalar();
 
                 if (resultado != null && int.TryParse(resultado.ToString(), out int codigoTitular))
@@ -81,7 +80,34 @@ namespace Projeto_Integrador
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro ao obter o código do titular: " + ex.Message);
+                MessageBox.Show("Ocorreu um erro na validação: " + ex.Message);
+                return -1;
+            }
+        }
+
+        // OBTER O CODIGO DO DEPENDENTE
+        public int ObterCodigoDependente(string cpf)
+        {
+            try
+            {
+                string sql = "SELECT codigo FROM Dependente WHERE cpf = @CPF";
+                SqlCommand comando = new SqlCommand(sql, conn);
+                comando.Parameters.AddWithValue("@CPF", cpf);
+
+                object resultado = comando.ExecuteScalar();
+
+                if (resultado != null && int.TryParse(resultado.ToString(), out int codigoTitular))
+                {
+                    return codigoTitular;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro na validação: " + ex.Message);
                 return -1;
             }
         }
@@ -211,7 +237,7 @@ namespace Projeto_Integrador
             }
         }
 
-        // PASSAR AS INFORMAÇÕES PRO GRID
+        // PASSAR AS INFORMAÇÕES PRO GRID DEPENDENTES
         public List<Dependente> ConsultaDependente(int codigoTitular)
         {
             string sql = @"SELECT codigo, nome, cpf, email FROM Dependente WHERE codigoTitular = @CodigoTitular";
@@ -241,46 +267,39 @@ namespace Projeto_Integrador
             return dependentes;
         }
 
-        //GRID CONSULTAR FATURAS 
-        public List<Fatura> ConsultaFatura(int codigoTitular)
+        // PASSAR AS INFORMAÇÕES PRO GRID EVENTOS
+        public List<Evento> ConsultaEvento()
         {
-            string sql = @"SELECT codigo, codigoTitular, mesReferente, dataVencimento, valor, statusPagamento FROM Fatura WHERE codigoTitular = @CodigoTitular";
-            SqlCommand comando = new SqlCommand( sql, conn);
-            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular );
-            List<Fatura> faturas = new List<Fatura>();
+            string sql = @"SELECT codigo, nome, descricao, local, dataEvento, horaEvento FROM Evento";
+            SqlCommand comando = new SqlCommand(sql, conn);
+
+            List<Evento> eventos = new List<Evento>();
 
             using (var reader = comando.ExecuteReader())
-            { 
+            {
                 while (reader.Read())
                 {
-                    var mesReferenteDb = reader.GetDateTime(reader.GetOrdinal("mesReferente"));
-                    var dataVencimentoDb = reader.GetDateTime(reader.GetOrdinal("dataVencimento"));
-                    var valorDb = reader.GetDecimal(reader.GetOrdinal("valor"));
-                    var statusPagamentoDb = reader.GetBoolean(reader.GetOrdinal("statusPagamento"));
-                    var codigoDb = reader.GetInt32(reader.GetOrdinal("Codigo"));
-                    var codigoTitularDb = reader.GetInt32(reader.GetOrdinal("codigoTitular"));
+                    var codigoDb = reader.GetInt32(reader.GetOrdinal("codigo"));
+                    var nomeDb = reader.GetString(reader.GetOrdinal("nome"));
+                    var descricaoDb = reader.GetString(reader.GetOrdinal("descricao"));
+                    var localDb = reader.GetString(reader.GetOrdinal("local"));
+                    var dataEventoDb = reader.GetDateTime(reader.GetOrdinal("dataEvento"));
+                    var horaEventoDb = reader.GetTimeSpan(reader.GetOrdinal("horaEvento"));
 
-                    faturas.Add(new Fatura()
+                    eventos.Add(new Evento()
                     {
                         codigo = codigoDb,
-                        codigoTitular = codigoTitularDb,
-                        mesReferente = mesReferenteDb,
-                        dataVencimento = dataVencimentoDb,
-                        valor = valorDb,
-                        statusPagamento = statusPagamentoDb,
-
-
-                        
+                        nome = nomeDb,
+                        descricao = descricaoDb,
+                        local = localDb,
+                        dataEvento = dataEventoDb,
+                        horaEvento = horaEventoDb
                     });
                 }
-
-             }
-            return faturas;
-
+            }
+            return eventos;
         }
-
-
-
+        
         // EXCLUIR O DEPENDENTE 
         public void ExcluirDependente(DataGridView dataGridView1, BindingList<Dependente> dependentes)
         {
@@ -306,8 +325,7 @@ namespace Projeto_Integrador
                         comando = new SqlCommand(sql, conn);
                         comando.Parameters.AddWithValue("@Codigo", idDependente);
                         comando.ExecuteNonQuery();
-
-                        // Remova a linha da BindingList<Dependente>
+                        
                         Dependente dependenteRemovido = dependentes.FirstOrDefault(d => d.codigo == idDependente);
                         if (dependenteRemovido != null)
                         {
@@ -319,8 +337,54 @@ namespace Projeto_Integrador
             }
         }
 
+        // CONFIRMAR PRESENÇA NO EVENTO
+        public void ConfirmarPresenca(DataGridView dataGridView, string tipoUsuario, int codigoTitular, int codigoDependente)
+        {
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                int rowIndex = dataGridView.SelectedRows[0].Index;
+                int codigoEvento = Convert.ToInt32(dataGridView.Rows[rowIndex].Cells["codigoColumn"].Value);
+                string nomeEvento = dataGridView.Rows[rowIndex].Cells["nomeColumn"].Value.ToString();
 
+                string mensagem = $"Tem certeza que deseja confirmar presença no evento {nomeEvento}?";
+                DialogResult resultado = MessageBox.Show(mensagem, "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string sql;
+                        SqlCommand comando;
+
+                        if (tipoUsuario == "Titular")
+                        {
+                            sql = "INSERT INTO Inscricao (codigoTitular, codigoEvento) VALUES (@CodigoTitular, @CodigoEvento)";
+                            comando = new SqlCommand(sql, conn);
+                            comando.Parameters.AddWithValue("@CodigoTitular", codigoTitular);
+                            comando.Parameters.AddWithValue("@CodigoEvento", codigoEvento);
+                        }
+                        else
+                        {
+                            sql = "INSERT INTO Inscricao (codigoDependente, codigoEvento) VALUES (@CodigoDependente, @CodigoEvento)";
+                            comando = new SqlCommand(sql, conn);
+                            comando.Parameters.AddWithValue("@CodigoDependente", codigoDependente);
+                            comando.Parameters.AddWithValue("@CodigoEvento", codigoEvento);
+                        }
+
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Presença confirmada com sucesso!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro ao confirmar presença: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um evento para confirmar presença.");
+            }
+        }
     }
-
 }
 
